@@ -1,0 +1,80 @@
+{
+  "record_id": "KYT-20260226-A",
+  "schema_version": "1.3",
+  "generated_at": "2026-03-09T07:18:33.166Z",
+  "site": {
+    "name_zh": "清水寺二年坂",
+    "name_local": "二年坂",
+    "name_en": "Ninenzaka,",
+    "city": "Kyoto",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "urban_public_space"
+  },
+  "observation": {
+    "date": "2026-02-26",
+    "time_of_day": "afternoon",
+    "season": "winter",
+    "weather": "陰",
+    "crowd_density": "high",
+    "visit_mode": "couple_free",
+    "companion": "husband",
+    "observer_flags": {
+      "sensory_saturation_effect": false,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": true
+    }
+  },
+  "vs_vector": {
+    "Vt": 8,
+    "Vl": 6,
+    "Vr": 7,
+    "Vg": 8,
+    "Ve": 2.5
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "natural_diffused",
+    "Vr_source": "invited_openness",
+    "Vg_subtype": "open_unframed",
+    "Ve_trigger": "external_narrative_human"
+  },
+  "sdindex_computation": {
+    "raw_sum": 31.5,
+    "max_possible": 50,
+    "sdindex_score": 6.3,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "field_notes": {
+    "Vt": "傳統文化密度很高，因為有寺院有町家，是個京都的歷史街區。",
+    "Vl": "質感偏中間值，因為陰天讓光線變得比較平，但其實用不同角度來觀測光與光的受體，也蠻有戲劇性的。",
+    "Vr": "即便是京都旅遊相對的淡季，人流還是呈現中等偏高的密度。",
+    "Vg": "二年坂三年坂的階梯步道形成一個非常特殊的幾何構圖，主要是因為看五重塔的角度因為階梯高低而出現幾何anchor的變化。",
+    "Ve": "雖然人留不斷，但是不至於讓人產生厭惡敢，遊客的歡樂氣氛，現場遊客的和服穿著有一種歷史時間與觀光時間的交錯感。不會讓人出現想要直接逃離人群的厭惡感"
+  },
+  "emotion_trajectory": {
+    "entry_state": "今天午餐後，我們從清水寺附近散步回家。\n天氣陰陰的，天空呈現低飽和的灰藍色，光線柔而平，街道與屋瓦的輪廓反而更加清晰。",
+    "turning_point": "櫻花季尚未開始，人潮卻已湧入。特別是來自非亞洲的旅人，讓清水、二年坂、三年坂呈現一種提前到來的季節密度。這裡不只是觀光地，而是一個被時間節點放大的流動結構古老木造、瓦屋、五重塔，在人潮與現代聲響之間維持著一種奇特的平衡。\n歷史沒有消失，而是被包覆在當代移動之中。",
+    "exit_state": "去掉櫻花之後，結構更清楚。\n去掉寧靜之後，場所的本質反而更顯現。",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "歷史垂直軸vs 現代水平密度 "
+  },
+  "counterpoint": {
+    "paired_record": null
+  },
+  "ideal_condition": "京都旅遊淡季的清晨與深夜",
+  "research_finding": "沒有櫻花與楓葉的二年坂，京都的空間結構仍然成立嗎？",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-09T07:18:33.166Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
