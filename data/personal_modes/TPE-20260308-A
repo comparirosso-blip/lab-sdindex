@@ -1,0 +1,74 @@
+# PMOM-TPE-20260308-A-commercial-low-anchor-v1
+
+## 1. Mode Name
+
+**PMOM-TPE-20260308-A-commercial-low-anchor-v1**
+
+---
+
+## 2. Case Identity
+
+- **record_id:** TPE-20260308-A
+- **site_name:** Nankang LaLaport
+- **city:** Taipei
+- **site_type:** commercial_district
+- **mode_type:** personal minimal operating mode
+- **case_class:** commercial low-anchor benchmark
+- **dataset_role:** baseline / low-anchor / comparison reference
+
+---
+
+## 3. Purpose
+
+This PMOM is designed to process a mature commercial fieldwork record into a stable repository-ready case.
+
+Its function is not large-scale interpretation, but disciplined conversion of one fieldwork record into:
+
+- canonical raw data
+- compressed analytical summary
+- repository-grade analysis note
+- minimal QC trace
+- reusable comparison anchor
+- future Graph-RAG candidate node
+
+---
+
+## 4. Why This Case Matters
+
+This case is important because it functions as a **low-anchor commercial benchmark** inside the dataset.
+
+It is useful for at least four reasons:
+
+1. It provides a **Taipei commercial floor reference**, preventing the dataset from drifting toward only aesthetically strong samples.
+2. It demonstrates that **high geometric organization alone cannot rescue weak atmosphere, weak lingering force, or weak existential permission**.
+3. It is analytically valuable as a **geometry-atmosphere decoupling case**.
+4. It can later serve as a counterpoint for:
+   - premium retail spaces
+   - Japanese atrium malls
+   - luxury hospitality environments
+   - transit-commercial hybrid spaces
+
+---
+
+## 5. Minimal Objective
+
+For this case, the minimum complete workflow is:
+
+1. lock the raw JSON as canonical
+2. produce an analytical abstract
+3. produce a repository-ready analysis note
+4. produce a minimal QC note
+5. create a case README
+6. update registry files
+7. archive this PMOM for reuse
+
+No additional expansion is required unless this case is later elevated into comparative analysis or gold-sample teaching material.
+
+---
+
+## 6. Required Repo Artifacts
+
+### A. Raw Record
+**Path**
+```text
+data/fieldwork/TPE-20260308-A.json
