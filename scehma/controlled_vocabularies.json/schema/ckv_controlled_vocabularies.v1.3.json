@@ -1,0 +1,114 @@
+{
+  "schema_name": "ckv_controlled_vocabularies",
+  "schema_version": "1.3",
+  "description": "Controlled vocabularies extracted from CKV QuickForm v1.3 for use in SDIndex / CKV structured field observation records.",
+  "vocabularies": {
+    "site_types": [
+      "zen_temple_garden",
+      "imperial_garden",
+      "urban_public_space",
+      "agricultural_terroir",
+      "winery_vineyard",
+      "immersive_overnight",
+      "natural_landscape",
+      "commercial_district",
+      "interview_accompanied",
+      "other"
+    ],
+    "visit_modes": [
+      "solo_free",
+      "couple_free",
+      "guided_tour",
+      "interview_accompanied",
+      "immersive_overnight",
+      "repeat_visit"
+    ],
+    "vt_subtypes": [
+      "architectural_heritage",
+      "agricultural_terroir",
+      "biographical_founder",
+      "intangible_practice",
+      "corporate_constructed",
+      "non_intervention_natural"
+    ],
+    "vl_sources": [
+      "natural_diffused",
+      "natural_direct",
+      "artificial_warm",
+      "artificial_neutral",
+      "mixed",
+      "candlelight_lantern"
+    ],
+    "vr_sources": [
+      "architectural_design",
+      "social_protocol",
+      "invited_openness",
+      "cognitive_compression",
+      "existential_permission",
+      "guided_tour_managed"
+    ],
+    "vg_subtypes": [
+      "enclosure_deep",
+      "enclosure_shallow",
+      "open_framed",
+      "open_unframed",
+      "layered_threshold",
+      "void_centred",
+      "geometric_strict",
+      "geometric_organic"
+    ],
+    "ve_triggers": [
+      "external_narrative_AI",
+      "external_narrative_human",
+      "preloaded_knowledge",
+      "intrinsic_spatial",
+      "self_time_projection",
+      "none"
+    ],
+    "resilience_levels": [
+      "low",
+      "medium",
+      "high",
+      "exceptional"
+    ],
+    "emotion_types": [
+      "expectation_collapse_reframe",
+      "flat_positive",
+      "ascending_resonance",
+      "melancholy_empathy",
+      "intellectual_compression",
+      "existential_release",
+      "surprise_delight",
+      "other"
+    ],
+    "seasons": [
+      "winter",
+      "early_spring",
+      "spring",
+      "summer",
+      "autumn",
+      "late_autumn"
+    ],
+    "times": [
+      "morning",
+      "midday",
+      "afternoon",
+      "evening",
+      "night",
+      "full_day"
+    ],
+    "crowd_levels": [
+      "empty",
+      "very_low",
+      "low",
+      "moderate",
+      "high",
+      "crowded"
+    ]
+  },
+  "notes": {
+    "source": "Extracted from CKV QuickForm v1.3 HTML constants",
+    "compatibility": "Intended to be referenced by ckv_record.schema.v1.3.json",
+    "governance": "New terms should be added only through protocol review, not ad hoc per-record expansion."
+  }
+}
