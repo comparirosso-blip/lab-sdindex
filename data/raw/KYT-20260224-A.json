@@ -1,0 +1,80 @@
+{
+  "record_id": "KYT-20260224-A",
+  "schema_version": "1.3",
+  "generated_at": "2026-03-10T08:04:40.141Z",
+  "site": {
+    "name_zh": "銀閣寺",
+    "name_local": "慈照寺",
+    "name_en": "Ginkaku-ji",
+    "city": "Kyoto",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "zen_temple_garden"
+  },
+  "observation": {
+    "date": "2026-02-24",
+    "time_of_day": "midday",
+    "season": "winter",
+    "weather": "晴",
+    "crowd_density": "low",
+    "visit_mode": "couple_free",
+    "companion": "husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 8.5,
+    "Vl": 8,
+    "Vr": 8,
+    "Vg": 7,
+    "Ve": 8.5
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "natural_direct",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "open_unframed",
+    "Ve_trigger": "intrinsic_spatial"
+  },
+  "sdindex_computation": {
+    "raw_sum": 40,
+    "max_possible": 50,
+    "sdindex_score": 8,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "field_notes": {
+    "Vt": "京都東山文化發祥地，美學素養高，歷史厚度深",
+    "Vl": "初春乾淨自然光，柔和感與天氣乾爽感覺對稱",
+    "Vr": "人潮不多，散步模式非常愉悅，沒有擁擠感，雖然整個寺廟庭園沒有算非常遼闊，但是行走於步道仍顯得寬敞開闊",
+    "Vg": "樹木花草偏多，建築物的結構幾何感尚可，有一處小小的高處可以俯瞰京都市中心，這是小小的驚喜之處，至於銀沙灘的幾何視覺效果也尚可，可能京都市真的看太多了。銀閣寺空間幾何不算強，加上我的感官飽和導致感知鈍化已是無法高分的原因。",
+    "Ve": "空氣溫度都非常舒服，因為是一早就從家裡驅車前往，整個空間的放鬆感是京都知名寺廟少有的氛圍，坐在庭園裡賞著一株已開花的梅花，一坐就是半小時，也不覺得已經過很久。"
+  },
+  "emotion_trajectory": {
+    "entry_state": "天氣好，一早出門，停車停在銀閣寺官方停車場走路過去非常快，商店街遊客很少，過去因為人潮太擁擠而一直不想造訪此處，此次造訪覺得非常期待。",
+    "turning_point": "小山丘遠望京都市區的景象非常喜歡，也感到意外。之前都是在銀閣寺山後山，也就是大文字山瞭望，沒想到銀閣寺也能稍微俯瞰。",
+    "exit_state": "離場前買了銀閣寺專有的薰心，覺得很開心與平靜",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "初春的透明感"
+  },
+  "counterpoint": {
+    "paired_record": "KYT-20260218-A"
+  },
+  "ideal_condition": "初春淡季早晨",
+  "research_finding": "在京都寺廟群裡，銀閣寺跟金閣寺處與齊名的地位，但銀閣寺的近距離觀賞讓 Vr 的空間克制感比金閣寺更可感知",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-10T08:04:40.142Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
