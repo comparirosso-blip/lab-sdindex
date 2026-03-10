@@ -1,0 +1,80 @@
+{
+  "record_id": "NGN-20260222-A",
+  "schema_version": "1.3",
+  "generated_at": "2026-03-10T09:50:28.936Z",
+  "site": {
+    "name_zh": "椀子酒莊",
+    "name_local": "Château Mercian 椀子ワイナリー",
+    "name_en": "Mariko Winery",
+    "city": "Nagano",
+    "region": "NGN",
+    "country": "JP",
+    "site_type": "winery_vineyard"
+  },
+  "observation": {
+    "date": "2026-02-22",
+    "time_of_day": "morning",
+    "season": "winter",
+    "weather": "晴",
+    "crowd_density": "low",
+    "visit_mode": "couple_free",
+    "companion": "husband",
+    "observer_flags": {
+      "sensory_saturation_effect": false,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 8,
+    "Vl": 9,
+    "Vr": 9,
+    "Vg": 8.5,
+    "Ve": 9
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "agricultural_terroir",
+    "Vl_source": "natural_direct",
+    "Vr_source": "existential_permission",
+    "Vg_subtype": "open_unframed",
+    "Ve_trigger": "intrinsic_spatial"
+  },
+  "sdindex_computation": {
+    "raw_sum": 43.5,
+    "max_possible": 50,
+    "sdindex_score": 8.7,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "high",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "field_notes": {
+    "Vt": "現在日本文化再定義，酒莊的命名將古代日本歷史與現代葡萄酒融合，體現日本古今合一的傳統。是一個將日本葡萄酒文化向世界發聲的一個平台。是一個具有現代感、動態感、與前瞻性的文化場域。",
+    "Vl": "自由的光線，無雲藍天襯托下，遠處淺間山的輪廓變得很清楚，冬天的葡萄藤在陽光底下是靜態的，動態的光線在靜態的結構中流動。",
+    "Vr": "被包圍：被群山包圍，但絲毫沒有壓迫感。不論走在葡萄園或者展示中心，日式空間哲學在這裡是開闊性呈現。",
+    "Vg": "精準的幾何結構感，葡萄藤平行延伸的行距跟整齊劃一的柱型支架，梯田般的坡面疊層，呈現了一種和諧的韻律感",
+    "Ve": "站在酒莊落地窗台俯瞰整個葡萄園以及遠處的淺間山，手持一杯紅酒，可以想像日本葡萄酒莊辛苦要在世界葡萄酒市場站穩腳步的意圖。我帶著參與日本這個文化自信的視角，不自覺喝了兩杯。"
+  },
+  "emotion_trajectory": {
+    "entry_state": "拜訪日本最具代表性的酒莊，很是期待，一路從小諸市開車過來，並未發現有任何葡萄田，但一個轉彎之後繼續開了5分鐘，這一大片被光線解放的寬闊視野跟日式秩序，很是震撼。",
+    "turning_point": "none",
+    "exit_state": "聽完介紹，喝完酒，沈浸在冬陽的懷抱，感覺非常舒服，很想再來一次！",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "靜止的葡萄藤雖然身處冬天處於枯枝狀態，但是那靜止的結構因為光線而活起來，整個莊園的景觀跟到訪的人同步脈動。"
+  },
+  "counterpoint": {
+    "paired_record": null
+  },
+  "ideal_condition": "冬天大晴天",
+  "research_finding": "首筆非京都紀錄。驗證 SDIndex 框架在 agricultural_terroir 類型的適用性。Vl 與 Vr 在開闊田園結構中同時達到 9，顯示自然光 + 無壓迫開闊感可以共同推升整體分數。",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-10T09:50:28.936Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
