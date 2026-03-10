@@ -1,0 +1,539 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/sabrina/ckv-sdindex/schema/CKV_schema_v1.3.json",
+  "title": "Cultural Knowledge Vector — CKV Record",
+  "description": "Schema for SDIndex field research records. One file per site visit. Version 1.3 introduces region-neutral location fields for cross-national sampling.",
+  "version": "1.3",
+  "author": "Sabrina",
+  "license": "CC-BY-4.0",
+  "type": "object",
+  "required": [
+    "record_id",
+    "schema_version",
+    "generated_at",
+    "site",
+    "observation",
+    "vs_vector",
+    "vs_subtypes",
+    "sdindex_computation",
+    "sensory_resilience",
+    "field_notes",
+    "emotion_trajectory",
+    "asset_class"
+  ],
+  "properties": {
+
+    "record_id": {
+      "type": "string",
+      "description": "Unique record identifier. Format: {REGION_CODE}-{YYYYMMDD}-{SUFFIX}",
+      "pattern": "^[A-Z]{3}-[0-9]{8}-[A-Z]$",
+      "examples": ["KYT-20260319-A", "TPE-20260308-A", "NGN-20260501-A"]
+    },
+
+    "schema_version": {
+      "type": "string",
+      "const": "1.3",
+      "description": "CKV schema version. Must be 1.3 for records using this schema."
+    },
+
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of record generation."
+    },
+
+    "site": {
+      "type": "object",
+      "description": "Site identification and classification.",
+      "required": ["name_zh", "name_en", "city", "region", "country", "site_type"],
+      "properties": {
+        "name_zh": {
+          "type": "string",
+          "description": "Site name in Chinese (Traditional).",
+          "examples": ["龍安寺", "迪化街"]
+        },
+        "name_local": {
+          "type": ["string", "null"],
+          "description": "Site name in local language (optional). Use for Japanese, French, etc. Null if not applicable.",
+          "examples": ["龍安寺", "Rue du Temple"]
+        },
+        "name_en": {
+          "type": "string",
+          "description": "Site name in English.",
+          "examples": ["Ryoanji", "Dihua Street"]
+        },
+        "city": {
+          "type": "string",
+          "description": "City name in English.",
+          "examples": ["Kyoto", "Taipei", "Nara"]
+        },
+        "region": {
+          "type": "string",
+          "description": "Region or district code (3 letters, uppercase). Used in record_id generation.",
+          "pattern": "^[A-Z]{3}$",
+          "examples": ["KYT", "TPE", "NGN", "OSK", "TKY"]
+        },
+        "country": {
+          "type": "string",
+          "description": "ISO 3166-1 alpha-2 country code.",
+          "pattern": "^[A-Z]{2}$",
+          "examples": ["JP", "TW", "FR", "DE"]
+        },
+        "site_type": {
+          "type": "string",
+          "description": "Primary classification of the site.",
+          "enum": [
+            "zen_temple_garden",
+            "imperial_garden",
+            "urban_public_space",
+            "agricultural_terroir",
+            "winery_vineyard",
+            "immersive_overnight",
+            "natural_landscape",
+            "commercial_district",
+            "interview_accompanied",
+            "other"
+          ]
+        }
+      }
+    },
+
+    "observation": {
+      "type": "object",
+      "description": "Conditions at time of observation.",
+      "required": ["date", "time_of_day", "season", "crowd_density", "visit_mode"],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of field visit. ISO 8601 format.",
+          "examples": ["2026-03-19"]
+        },
+        "time_of_day": {
+          "type": "string",
+          "enum": ["morning", "midday", "afternoon", "evening", "night", "full_day"]
+        },
+        "season": {
+          "type": "string",
+          "enum": ["winter", "early_spring", "spring", "summer", "autumn", "late_autumn"]
+        },
+        "weather": {
+          "type": ["string", "null"],
+          "description": "Brief weather description.",
+          "examples": ["晴", "陰", "雨", "overcast", "clear"]
+        },
+        "crowd_density": {
+          "type": "string",
+          "description": "Observed crowd density at time of visit. Independent of sensory_resilience.",
+          "enum": ["empty", "very_low", "low", "moderate", "high", "crowded"]
+        },
+        "visit_mode": {
+          "type": "string",
+          "enum": [
+            "solo_free",
+            "couple_free",
+            "guided_tour",
+            "interview_accompanied",
+            "immersive_overnight",
+            "repeat_visit"
+          ]
+        },
+        "companion": {
+          "type": ["string", "null"],
+          "description": "Who accompanied the observer, if anyone.",
+          "examples": ["solo", "老公", "Daniel"]
+        },
+        "observer_flags": {
+          "type": "object",
+          "description": "Boolean flags indicating observer state that may affect scoring validity.",
+          "required": [
+            "sensory_saturation_effect",
+            "preloaded_knowledge_active",
+            "ai_collaboration_during_visit",
+            "repeat_visit"
+          ],
+          "properties": {
+            "sensory_saturation_effect": {
+              "type": "boolean",
+              "description": "Observer has visited many similar sites recently; risk of Ve and Vt compression."
+            },
+            "preloaded_knowledge_active": {
+              "type": "boolean",
+              "description": "Observer's prior knowledge of site history is actively influencing perception; especially affects Ve."
+            },
+            "ai_collaboration_during_visit": {
+              "type": "boolean",
+              "description": "AI tool used for real-time information during visit."
+            },
+            "repeat_visit": {
+              "type": "boolean",
+              "description": "Observer has visited this site before. First visit = false."
+            }
+          }
+        }
+      }
+    },
+
+    "vs_vector": {
+      "type": "object",
+      "description": "Five-dimensional sensory vector. Each dimension scored 0.0–10.0 in 0.5 increments. See SCORING_GUIDE.md for anchor references.",
+      "required": ["Vt", "Vl", "Vr", "Vg", "Ve"],
+      "properties": {
+        "Vt": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "multipleOf": 0.5,
+          "description": "傳統文化密度 — Traditional Cultural Density. How many layers of time are perceptible? Core question: depth."
+        },
+        "Vl": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "multipleOf": 0.5,
+          "description": "光線質感 — Light Quality. Is light active or passive? Does it create layers? Core question: layers."
+        },
+        "Vr": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "multipleOf": 0.5,
+          "description": "空間克制度 — Spatial Restraint. How much has this space refused to include? Core question: intention."
+        },
+        "Vg": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "multipleOf": 0.5,
+          "description": "空間幾何結構感 — Geometric Spatial Character. Does the geometry tell your body where it is? Core question: structure."
+        },
+        "Ve": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "multipleOf": 0.5,
+          "description": "時間感 — Temporal Depth. Does the space change the felt speed of time? Core question: weight."
+        }
+      }
+    },
+
+    "vs_subtypes": {
+      "type": "object",
+      "description": "Qualitative subtype classifications for each Vs dimension. Required for Graph RAG edge computation.",
+      "required": ["Vt_subtype", "Vl_source", "Vr_source", "Vg_subtype", "Ve_trigger"],
+      "properties": {
+        "Vt_subtype": {
+          "type": "string",
+          "description": "Origin of traditional cultural density.",
+          "enum": [
+            "architectural_heritage",
+            "agricultural_terroir",
+            "biographical_founder",
+            "intangible_practice",
+            "corporate_constructed",
+            "non_intervention_natural"
+          ]
+        },
+        "Vl_source": {
+          "type": "string",
+          "description": "Primary light source type. Added v1.2. Critical for cross-modal retrieval — same Vl score under different light sources means different things.",
+          "enum": [
+            "natural_diffused",
+            "natural_direct",
+            "artificial_warm",
+            "artificial_neutral",
+            "mixed",
+            "candlelight_lantern"
+          ]
+        },
+        "Vr_source": {
+          "type": "string",
+          "description": "Origin of spatial restraint.",
+          "enum": [
+            "architectural_design",
+            "social_protocol",
+            "invited_openness",
+            "cognitive_compression",
+            "existential_permission",
+            "guided_tour_managed"
+          ]
+        },
+        "Vg_subtype": {
+          "type": "string",
+          "description": "Geometric spatial character. Added v1.2. Required for Graph RAG node typing.",
+          "enum": [
+            "enclosure_deep",
+            "enclosure_shallow",
+            "open_framed",
+            "open_unframed",
+            "layered_threshold",
+            "void_centred",
+            "geometric_strict",
+            "geometric_organic"
+          ]
+        },
+        "Ve_trigger": {
+          "type": "string",
+          "description": "Mechanism that activated temporal experience.",
+          "enum": [
+            "external_narrative_AI",
+            "external_narrative_human",
+            "preloaded_knowledge",
+            "intrinsic_spatial",
+            "self_time_projection",
+            "none"
+          ]
+        }
+      }
+    },
+
+    "sdindex_computation": {
+      "type": "object",
+      "description": "SDIndex calculation. Formula: sum(Vt+Vl+Vr+Vg+Ve) / 50 × 10",
+      "required": ["raw_sum", "max_possible", "sdindex_score", "formula"],
+      "properties": {
+        "raw_sum": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 50,
+          "description": "Sum of all five Vs dimensions."
+        },
+        "max_possible": {
+          "type": "number",
+          "const": 50
+        },
+        "sdindex_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10,
+          "description": "Final SDIndex score, normalised to 0–10."
+        },
+        "formula": {
+          "type": "string",
+          "const": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+        },
+        "calibration_note": {
+          "type": ["string", "null"],
+          "description": "Optional. Added during Layer 1 validation if anchor drift was detected and scores were reviewed."
+        }
+      }
+    },
+
+    "sensory_resilience": {
+      "type": "object",
+      "description": "Observer's assessment of the space's structural resistance to crowding and noise. Assessed independently from observed crowd_density. Added v1.2.",
+      "required": ["level"],
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "exceptional"],
+          "description": "low: collapses under crowding (e.g. Arashiyama bamboo). exceptional: structurally immune (e.g. deep mountain temple)."
+        },
+        "note": {
+          "type": ["string", "null"],
+          "description": "Optional elaboration on resilience assessment."
+        }
+      }
+    },
+
+    "field_notes": {
+      "type": "object",
+      "description": "Free-text field notes per dimension. Written in the moment, any language.",
+      "required": ["Vt", "Vl", "Vr", "Vg", "Ve"],
+      "properties": {
+        "Vt": { "type": "string" },
+        "Vl": { "type": "string" },
+        "Vr": { "type": "string" },
+        "Vg": { "type": "string" },
+        "Ve": { "type": "string" }
+      }
+    },
+
+    "emotion_trajectory": {
+      "type": "object",
+      "description": "Observer's emotional arc through the visit.",
+      "required": ["entry_state", "exit_state", "trajectory_type"],
+      "properties": {
+        "entry_state": {
+          "type": "string",
+          "description": "Emotional/physical state upon arrival.",
+          "examples": ["高期待", "零預期", "sensory fatigue", "旅途放鬆"]
+        },
+        "turning_point": {
+          "type": ["string", "null"],
+          "description": "Moment of perceptual shift during visit, if any. Null if no turning point occurred."
+        },
+        "exit_state": {
+          "type": "string",
+          "description": "Emotional/physical state upon departure.",
+          "examples": ["共鳴", "平靜", "被收留", "intellectual compression"]
+        },
+        "trajectory_type": {
+          "type": "string",
+          "enum": [
+            "expectation_collapse_reframe",
+            "flat_positive",
+            "ascending_resonance",
+            "melancholy_empathy",
+            "intellectual_compression",
+            "existential_release",
+            "surprise_delight",
+            "other"
+          ]
+        },
+        "key_insight": {
+          "type": ["string", "null"],
+          "description": "The single most precise sentence this site produced. The distillation."
+        }
+      }
+    },
+
+    "counterpoint": {
+      "type": "object",
+      "description": "Links to a paired record for contrastive analysis.",
+      "properties": {
+        "paired_record": {
+          "type": ["string", "null"],
+          "description": "record_id of the counterpoint record.",
+          "examples": ["KYT-20260324-A", null]
+        }
+      }
+    },
+
+    "ideal_condition": {
+      "type": ["string", "null"],
+      "description": "Machine-readable description of optimal sampling conditions. Used by Graph RAG for temporal filtering. Added v1.2.",
+      "examples": [
+        "Weekday morning before 9am, avoid March–April cherry blossom peak",
+        "Non-peak hours, winter or early spring",
+        "Early morning, low tourist season"
+      ]
+    },
+
+    "research_finding": {
+      "type": ["string", "null"],
+      "description": "Special contribution of this record to the research: anomalies, unexpected findings, thesis implications."
+    },
+
+    "asset_class": {
+      "type": "string",
+      "const": "Gold_Sample",
+      "description": "All records in data/samples/ are Gold Samples by definition."
+    },
+
+    "usable_for_llm_training": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this record may be used for LLM training datasets."
+    },
+
+    "ip_status": {
+      "type": "object",
+      "description": "Intellectual property declaration.",
+      "properties": {
+        "author": {
+          "type": "string",
+          "const": "Sabrina"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "license": {
+          "type": "string",
+          "const": "CC-BY-4.0"
+        },
+        "locked": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false,
+
+  "examples": [
+    {
+      "record_id": "TPE-20260308-A",
+      "schema_version": "1.3",
+      "generated_at": "2026-03-08T10:30:00.000Z",
+      "site": {
+        "name_zh": "台北車站地下街",
+        "name_local": null,
+        "name_en": "Taipei Main Station Underground Mall",
+        "city": "Taipei",
+        "region": "TPE",
+        "country": "TW",
+        "site_type": "urban_public_space"
+      },
+      "observation": {
+        "date": "2026-03-08",
+        "time_of_day": "morning",
+        "season": "early_spring",
+        "weather": "陰",
+        "crowd_density": "high",
+        "visit_mode": "solo_free",
+        "companion": null,
+        "observer_flags": {
+          "sensory_saturation_effect": false,
+          "preloaded_knowledge_active": false,
+          "ai_collaboration_during_visit": false,
+          "repeat_visit": true
+        }
+      },
+      "vs_vector": {
+        "Vt": 1.0,
+        "Vl": 1.5,
+        "Vr": 1.5,
+        "Vg": 2.0,
+        "Ve": 1.0
+      },
+      "vs_subtypes": {
+        "Vt_subtype": "corporate_constructed",
+        "Vl_source": "artificial_neutral",
+        "Vr_source": "guided_tour_managed",
+        "Vg_subtype": "open_unframed",
+        "Ve_trigger": "none"
+      },
+      "sdindex_computation": {
+        "raw_sum": 7.0,
+        "max_possible": 50,
+        "sdindex_score": 1.4,
+        "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10",
+        "calibration_note": null
+      },
+      "sensory_resilience": {
+        "level": "low",
+        "note": "Any crowd density above moderate causes complete spatial logic collapse"
+      },
+      "field_notes": {
+        "Vt": "No historical layer visible. All surfaces standardised.",
+        "Vl": "Uniform fluorescent overhead. Zero shadow.",
+        "Vr": "Every surface used. Signage density extreme.",
+        "Vg": "Long corridor, no spatial event, no threshold.",
+        "Ve": "Pure present tense. Efficiency logic only."
+      },
+      "emotion_trajectory": {
+        "entry_state": "neutral research mode",
+        "turning_point": null,
+        "exit_state": "slight sensory relief upon exit",
+        "trajectory_type": "flat_positive",
+        "key_insight": "Absence of shadow is not neutral — it is a design choice that eliminates depth."
+      },
+      "counterpoint": {
+        "paired_record": "KYT-20260401-A"
+      },
+      "ideal_condition": null,
+      "research_finding": "Confirmed low-end anchor. Vl=1.5 under pure artificial_neutral is the floor reference for cross-national convenience store comparison.",
+      "asset_class": "Gold_Sample",
+      "usable_for_llm_training": true,
+      "ip_status": {
+        "author": "Sabrina",
+        "created_at": "2026-03-08T10:30:00.000Z",
+        "license": "CC-BY-4.0",
+        "locked": true
+      }
+    }
+  ]
+}
