@@ -1,0 +1,168 @@
+# PMOM — NGN-20260222-A
+## Personal Minimal Operating Mode
+## Site: Château Mercian 椀子ワイナリー / Mariko Winery
+
+### 0. Mode identity
+This mode is designed for:
+- winery_vineyard fieldwork
+- agricultural_terroir type records
+- high-clarity / high-openness / high-resonance sites
+- records with strong Gold Sample potential
+
+This mode is not for:
+- heavy crowd-interference sites
+- highly unstable emotional records
+- mixed-event overlay records
+- weak or fragmentary observational notes
+
+---
+
+## 1. Core objective
+
+This mode exists to do one thing well:
+
+Convert one completed fieldwork JSON record into a stable repository-ready package with:
+1. a checked primary record
+2. one analytical abstract
+3. one synthesis note
+4. a minimal QC trace
+5. a clear storage path in repo
+
+The purpose is not literary expansion.
+The purpose is not over-analysis.
+The purpose is analytical compression + repository consistency.
+
+---
+
+## 2. Record profile for this case
+
+### Record ID
+`NGN-20260222-A`
+
+### Structural identity
+- site_type: winery_vineyard
+- subtype signal: agricultural_terroir
+- visit condition: winter / morning /晴 / low crowd
+- mode: couple_free
+- affect pattern: ascending_resonance
+- asset_class: Gold_Sample
+- usable_for_llm_training: true
+
+### Why this record matters
+This is the first non-Kyoto record and helps test whether SDIndex remains stable outside temple / urban Kyoto contexts. It is therefore methodologically important, not just descriptively pleasant. :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
+
+---
+
+## 3. Minimal execution flow
+
+### Step 1 — Store the raw canonical record
+Put the finalized JSON here:
+
+`records/NGN-20260222-A.json`
+
+Rule:
+- this file is the canonical field record
+- do not rewrite content unless there is a true schema / scoring correction
+- if revised, create a new revision note, not silent replacement
+
+---
+
+### Step 2 — Produce analytical abstract
+Generate one compact analytical abstract from the JSON.
+
+Save to:
+
+`analysis/abstracts/NGN-20260222-A-abstract.md`
+
+Purpose:
+- compress spatial and methodological identity
+- identify dominant / weak dimensions
+- articulate main tension
+- preserve dataset value
+
+---
+
+### Step 3 — Produce synthesis note
+Generate one repository-ready structured analysis note.
+
+Save to:
+
+`analysis/synthesis/NGN-20260222-A-synthesis.md`
+
+Purpose:
+- define analytical identity within dataset
+- state dimensional signature
+- capture research value
+- flag graph-rag relevance
+- assign tags for retrieval
+
+---
+
+### Step 4 — Run minimal QC review
+Do not begin with full philosophical interpretation.
+First run a minimal schema and logic check.
+
+Save to:
+
+`research_log/qc/NGN-20260222-A-qc-review.md`
+
+QC should check only:
+- schema completeness
+- score consistency
+- subtype / trigger coherence
+- whether field notes support vector scores
+- whether Gold_Sample status is justified
+
+---
+
+### Step 5 — Write disposition note only if needed
+Only create this if QC finds actual issues.
+
+Save to:
+
+`research_log/disposition/NGN-20260222-A-disposition-note.md`
+
+Do not create a disposition note merely because a model has opinions.
+Create it only if:
+- score contradiction exists
+- subtype classification is unstable
+- methodological risk is real
+- storage or training status needs adjustment
+
+For this record, disposition note is probably unnecessary unless QC identifies a nontrivial inconsistency.
+
+---
+
+## 4. Decision rule for this specific record
+
+For `NGN-20260222-A`, default handling is:
+
+- keep as Gold Sample candidate
+- run minimal QC
+- generate abstract
+- generate synthesis note
+- no disposition note unless QC discovers instability
+
+Reason:
+The record is internally strong, conceptually coherent, and already contains explicit methodological significance. :contentReference[oaicite:3]{index=3}
+
+---
+
+## 5. Recommended repo placement
+
+```text
+repo/
+├── records/
+│   └── NGN-20260222-A.json
+├── analysis/
+│   ├── abstracts/
+│   │   └── NGN-20260222-A-abstract.md
+│   └── synthesis/
+│       └── NGN-20260222-A-synthesis.md
+├── research_log/
+│   ├── qc/
+│   │   └── NGN-20260222-A-qc-review.md
+│   └── disposition/
+│       └── NGN-20260222-A-disposition-note.md   # only if needed
+└── personal_modes/
+    └── PMOM-NGN-20260222-A-Mariko-Winery.md
