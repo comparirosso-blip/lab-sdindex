@@ -1,0 +1,81 @@
+{
+  "record_id": "TPE-20260308-A",
+  "schema_version": "1.3",
+  "generated_at": "2026-03-08T09:34:16.322Z",
+  "site": {
+    "name_zh": "南港Lalaport",
+    "name_local": null,
+    "name_en": "Nankang LaLaport",
+    "city": "Taipei",
+    "region": "TPE",
+    "country": "TW",
+    "site_type": "commercial_district"
+  },
+  "observation": {
+    "date": "2026-03-08",
+    "time_of_day": "afternoon",
+    "season": "winter",
+    "weather": "雨",
+    "crowd_density": "high",
+    "visit_mode": "couple_free",
+    "companion": "老公",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 2.5,
+    "Vl": 2.0,
+    "Vr": 2.5,
+    "Vg": 4.0,
+    "Ve": 2.5
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "corporate_constructed",
+    "Vl_source": "artificial_neutral",
+    "Vr_source": "cognitive_compression",
+    "Vg_subtype": "geometric_organic",
+    "Ve_trigger": "self_time_projection"
+  },
+  "sdindex_computation": {
+    "raw_sum": 13.5,
+    "max_possible": 50,
+    "sdindex_score": 2.7,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10",
+    "calibration_note": null
+  },
+  "sensory_resilience": {
+    "level": "low",
+    "note": "高人潮下空間邏輯完全被噪音與視覺雜訊淹沒，中庭的垂直幾何優勢失效"
+  },
+  "field_notes": {
+    "Vt": "雖然是日系商場，但整個氛圍就很台灣，光線跟音樂都沒有任何日本的感覺。企業構建的文化符號在地化後失去原有張力。",
+    "Vl": "大量downlight，冷白光，均勻照明，缺乏陰影層次。光的目的是消滅陰影，不是創造層次。",
+    "Vr": "多層中庭、曲線欄杆、垂直視覺通道、LED光帶。建築師顯然花了很多心思在vertical drama，但問題是：geometry很強，atmosphere很弱。整體texture偏商業交通空間，不是停留型空間。",
+    "Vg": "曲線欄杆與多層中庭產生了一定的幾何事件，但身體沒有被告知應該在哪裡停留，動線邏輯是流通而非駐留。",
+    "Ve": "音樂與光線不對，不會想久留。時間感來自自我投射——想像自己在別處——而非空間本身產生的時間重量。"
+  },
+  "emotion_trajectory": {
+    "entry_state": "帶著研究者視角進場，預期低，保持觀察距離",
+    "turning_point": null,
+    "exit_state": "確認了直覺判斷，沒有被空間說服，輕微的感官解脫感",
+    "trajectory_type": "flat_positive",
+    "key_insight": "建築驅動型商場，不是氛圍驅動型商場。幾何可以很強，但如果光線沒有層次、克制度不足，空間只是一個功能容器。"
+  },
+  "counterpoint": {
+    "paired_record": null
+  },
+  "ideal_condition": "冬天週間大太陽，人潮稀少，才有餘裕去感受空間本身的幾何結構",
+  "research_finding": "第一筆台北低端錨點。驗證了SDIndex的核心邏輯：單一維度高（Vg=4.0，幾何結構尚可）不足以拉升整體分數，Vl與Vr的雙低導致空間感官密度崩潰。sensory_saturation_effect=true因觀察者長期暴露於台灣同類型商業空間，對此類型空間的Ve感知已習慣化。此筆作為台北商業空間低端參照基準。",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-08T09:34:16.322Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
