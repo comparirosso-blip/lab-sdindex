@@ -1,0 +1,481 @@
+{
+  "ruleset_name": "record_validation_rules",
+  "ruleset_version": "1.0",
+  "applies_to_schema_version": "1.3",
+  "description": "Validation rules for CKV / SDIndex canonical records derived from CKV QuickForm v1.3.",
+  "validation_policy": {
+    "mode": "canonical_gatekeeping",
+    "purpose": [
+      "validate record structure",
+      "validate controlled vocabulary usage",
+      "validate score range and internal consistency",
+      "support canonical_records admission",
+      "support QC review decisions"
+    ]
+  },
+  "required_top_level_fields": [
+    "record_id",
+    "schema_version",
+    "generated_at",
+    "site",
+    "observation",
+    "vs_vector",
+    "vs_subtypes",
+    "sdindex_computation",
+    "sensory_resilience",
+    "field_notes",
+    "emotion_trajectory",
+    "counterpoint",
+    "asset_class",
+    "usable_for_llm_training",
+    "ip_status"
+  ],
+  "field_rules": {
+    "record_id": {
+      "type": "string",
+      "required": true,
+      "pattern": "^[A-Z]{3}-\\d{8}-[A-Z]$",
+      "notes": "QuickForm generateID() produces pattern like KYT-20260308-A. If region or date is missing, placeholder XXX-00000000-A may appear in draft/raw state but should not pass canonical validation."
+    },
+    "schema_version": {
+      "type": "string",
+      "required": true,
+      "allowed_values": ["1.3"]
+    },
+    "generated_at": {
+      "type": "string",
+      "required": true,
+      "format": "date-time"
+    },
+    "site": {
+      "type": "object",
+      "required": true,
+      "required_fields": [
+        "name_zh",
+        "name_en",
+        "city",
+        "region",
+        "country",
+        "site_type"
+      ],
+      "optional_fields": [
+        "name_local"
+      ]
+    },
+    "site.name_zh": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "site.name_local": {
+      "type": ["string", "null"],
+      "required": false
+    },
+    "site.name_en": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "site.city": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "site.region": {
+      "type": "string",
+      "required": true,
+      "min_length": 1,
+      "recommended_pattern": "^[A-Z]{3,}$"
+    },
+    "site.country": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "site.site_type": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/site_types"
+    },
+    "observation": {
+      "type": "object",
+      "required": true,
+      "required_fields": [
+        "date",
+        "time_of_day",
+        "season",
+        "weather",
+        "crowd_density",
+        "visit_mode",
+        "companion",
+        "observer_flags"
+      ]
+    },
+    "observation.date": {
+      "type": "string",
+      "required": true,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "observation.time_of_day": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/times"
+    },
+    "observation.season": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/seasons"
+    },
+    "observation.weather": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "observation.crowd_density": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/crowd_levels"
+    },
+    "observation.visit_mode": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/visit_modes"
+    },
+    "observation.companion": {
+      "type": "string",
+      "required": true
+    },
+    "observation.observer_flags": {
+      "type": "object",
+      "required": true,
+      "required_fields": [
+        "sensory_saturation_effect",
+        "preloaded_knowledge_active",
+        "ai_collaboration_during_visit",
+        "repeat_visit"
+      ]
+    },
+    "observation.observer_flags.sensory_saturation_effect": {
+      "type": "boolean",
+      "required": true
+    },
+    "observation.observer_flags.preloaded_knowledge_active": {
+      "type": "boolean",
+      "required": true
+    },
+    "observation.observer_flags.ai_collaboration_during_visit": {
+      "type": "boolean",
+      "required": true
+    },
+    "observation.observer_flags.repeat_visit": {
+      "type": "boolean",
+      "required": true
+    },
+    "vs_vector": {
+      "type": "object",
+      "required": true,
+      "required_fields": ["Vt", "Vl", "Vr", "Vg", "Ve"]
+    },
+    "vs_vector.Vt": {
+      "type": "number",
+      "required": true,
+      "minimum": 0,
+      "maximum": 10,
+      "multiple_of": 0.5
+    },
+    "vs_vector.Vl": {
+      "type": "number",
+      "required": true,
+      "minimum": 0,
+      "maximum": 10,
+      "multiple_of": 0.5
+    },
+    "vs_vector.Vr": {
+      "type": "number",
+      "required": true,
+      "minimum": 0,
+      "maximum": 10,
+      "multiple_of": 0.5
+    },
+    "vs_vector.Vg": {
+      "type": "number",
+      "required": true,
+      "minimum": 0,
+      "maximum": 10,
+      "multiple_of": 0.5
+    },
+    "vs_vector.Ve": {
+      "type": "number",
+      "required": true,
+      "minimum": 0,
+      "maximum": 10,
+      "multiple_of": 0.5
+    },
+    "vs_subtypes": {
+      "type": "object",
+      "required": true,
+      "required_fields": [
+        "Vt_subtype",
+        "Vl_source",
+        "Vr_source",
+        "Vg_subtype",
+        "Ve_trigger"
+      ]
+    },
+    "vs_subtypes.Vt_subtype": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/vt_subtypes"
+    },
+    "vs_subtypes.Vl_source": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/vl_sources"
+    },
+    "vs_subtypes.Vr_source": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/vr_sources"
+    },
+    "vs_subtypes.Vg_subtype": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/vg_subtypes"
+    },
+    "vs_subtypes.Ve_trigger": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/ve_triggers"
+    },
+    "sdindex_computation": {
+      "type": "object",
+      "required": true,
+      "required_fields": [
+        "raw_sum",
+        "max_possible",
+        "sdindex_score",
+        "formula"
+      ]
+    },
+    "sdindex_computation.raw_sum": {
+      "type": "number",
+      "required": true,
+      "minimum": 0,
+      "maximum": 50
+    },
+    "sdindex_computation.max_possible": {
+      "type": "number",
+      "required": true,
+      "const": 50
+    },
+    "sdindex_computation.sdindex_score": {
+      "type": "number",
+      "required": true,
+      "minimum": 0,
+      "maximum": 10
+    },
+    "sdindex_computation.formula": {
+      "type": "string",
+      "required": true,
+      "const": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+    },
+    "sensory_resilience": {
+      "type": "object",
+      "required": true,
+      "required_fields": ["level", "note"]
+    },
+    "sensory_resilience.level": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/resilience_levels"
+    },
+    "sensory_resilience.note": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "field_notes": {
+      "type": "object",
+      "required": true,
+      "required_fields": ["Vt", "Vl", "Vr", "Vg", "Ve"]
+    },
+    "field_notes.Vt": {
+      "type": "string",
+      "required": true
+    },
+    "field_notes.Vl": {
+      "type": "string",
+      "required": true
+    },
+    "field_notes.Vr": {
+      "type": "string",
+      "required": true
+    },
+    "field_notes.Vg": {
+      "type": "string",
+      "required": true
+    },
+    "field_notes.Ve": {
+      "type": "string",
+      "required": true
+    },
+    "emotion_trajectory": {
+      "type": "object",
+      "required": true,
+      "required_fields": [
+        "entry_state",
+        "turning_point",
+        "exit_state",
+        "trajectory_type",
+        "key_insight"
+      ]
+    },
+    "emotion_trajectory.entry_state": {
+      "type": "string",
+      "required": true
+    },
+    "emotion_trajectory.turning_point": {
+      "type": "string",
+      "required": true,
+      "notes": "QuickForm writes 'none' when empty."
+    },
+    "emotion_trajectory.exit_state": {
+      "type": "string",
+      "required": true
+    },
+    "emotion_trajectory.trajectory_type": {
+      "type": "string",
+      "required": true,
+      "controlled_vocabulary_ref": "ckv_controlled_vocabularies.v1.3.json#/vocabularies/emotion_types"
+    },
+    "emotion_trajectory.key_insight": {
+      "type": "string",
+      "required": true
+    },
+    "counterpoint": {
+      "type": "object",
+      "required": true,
+      "required_fields": ["paired_record"]
+    },
+    "counterpoint.paired_record": {
+      "type": ["string", "null"],
+      "required": true
+    },
+    "ideal_condition": {
+      "type": ["string", "null"],
+      "required": false
+    },
+    "research_finding": {
+      "type": ["string", "null"],
+      "required": false
+    },
+    "asset_class": {
+      "type": "string",
+      "required": true,
+      "allowed_values": ["Gold_Sample"]
+    },
+    "usable_for_llm_training": {
+      "type": "boolean",
+      "required": true
+    },
+    "ip_status": {
+      "type": "object",
+      "required": true,
+      "required_fields": [
+        "author",
+        "created_at",
+        "license",
+        "locked"
+      ]
+    },
+    "ip_status.author": {
+      "type": "string",
+      "required": true,
+      "min_length": 1
+    },
+    "ip_status.created_at": {
+      "type": "string",
+      "required": true,
+      "format": "date-time"
+    },
+    "ip_status.license": {
+      "type": "string",
+      "required": true,
+      "allowed_values": ["CC-BY-4.0"]
+    },
+    "ip_status.locked": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "cross_field_rules": [
+    {
+      "rule_id": "CF-001",
+      "description": "record_id region prefix must match site.region first three uppercase characters in canonical records",
+      "severity": "warning"
+    },
+    {
+      "rule_id": "CF-002",
+      "description": "record_id must not remain XXX-00000000-A for canonical records",
+      "severity": "error"
+    },
+    {
+      "rule_id": "CF-003",
+      "description": "sdindex_computation.raw_sum must equal sum(vs_vector.Vt, Vl, Vr, Vg, Ve) rounded to 1 decimal place",
+      "severity": "error"
+    },
+    {
+      "rule_id": "CF-004",
+      "description": "sdindex_computation.sdindex_score must equal raw_sum / 50 * 10 rounded to 2 decimal places",
+      "severity": "error"
+    },
+    {
+      "rule_id": "CF-005",
+      "description": "if observation.observer_flags.preloaded_knowledge_active is true, vs_subtypes.Ve_trigger should be reviewed for possible alignment with preloaded knowledge or external narrative categories",
+      "severity": "warning"
+    },
+    {
+      "rule_id": "CF-006",
+      "description": "if counterpoint.paired_record is not null, referenced record_id should exist in repository or be marked as pending link",
+      "severity": "warning"
+    },
+    {
+      "rule_id": "CF-007",
+      "description": "ideal_condition is strongly recommended for records intended for Graph RAG preparation",
+      "severity": "warning"
+    }
+  ],
+  "canonical_admission_rules": {
+    "must_pass": [
+      "all required_top_level_fields present",
+      "all required nested fields present",
+      "all controlled vocabulary fields valid",
+      "all vs_vector values within 0-10",
+      "all vs_vector values aligned to 0.5 step",
+      "record_id not placeholder",
+      "sdindex_computation internally consistent"
+    ],
+    "should_pass": [
+      "field_notes contain non-empty observational content",
+      "emotion_trajectory fields are semantically informative, not blank filler",
+      "research_finding present for analytically valuable records",
+      "ideal_condition present for graph-oriented records"
+    ],
+    "may_be_deferred_to_qc": [
+      "Ve trigger ambiguity",
+      "dimension scoring tension requiring manual review",
+      "paired_record unresolved",
+      "observer flag / subtype interpretive mismatch"
+    ]
+  },
+  "failure_handling": {
+    "error": "record cannot enter canonical_records",
+    "warning": "record may enter qc_audit_notes or remain in raw pending review",
+    "info": "record acceptable but recommended for enrichment"
+  },
+  "notes": {
+    "source_basis": "Derived from CKV QuickForm v1.3 current output structure and controlled vocabularies.",
+    "intended_use": "Repository governance and manual / semi-automated validation.",
+    "future_extension": "Can later be converted into executable validation logic or JSON Schema."
+  }
+}
