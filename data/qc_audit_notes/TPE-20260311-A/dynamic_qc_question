@@ -1,0 +1,73 @@
+**A. Structural QC**
+
+**QC-001**
+
+* qc\_type: Structural  
+* target\_field: site.site\_type  
+* question: Tou Tou An hosted a private, invitation-only winemaker dinner. Why is it classified as `urban_public_space`? Would `private_dining` or `invited_event` be more accurate?  
+* why\_this\_question\_matters: site\_type determines cross-record comparability. Misclassification will conflate this record with genuine urban public spaces in future analysis.
+
+**QC-002**
+
+* qc\_type: Structural  
+* target\_field: observation.visit\_mode  
+* question: `solo_free` implies unstructured independent visit, but this was a structured event organized by a wine distributor. Should visit\_mode be `invited_event` (pending v1.4)?  
+* why\_this\_question\_matters: visit\_mode provides the observational context for Ve and Vg interpretation. An incorrect mode label will cause future AI agents to misread the observation conditions.
+
+---
+
+**B. Semantic QC**
+
+**QC-003**
+
+* qc\_type: Semantic  
+* target\_field: vs\_vector.Vl \+ field\_notes.Vl  
+* question: Vl is scored 6, but the field note describes lighting that diminishes the visual depth of wine color and makes staff movement appear coarse — clearly negative perception. Is 6 an overestimate? Should the score fall in the 3.5–4.5 range?  
+* why\_this\_question\_matters: Contradiction between score and qualitative description is the most common source of data contamination and undermines SDIndex score reliability.
+
+**QC-004**
+
+* qc\_type: Semantic  
+* target\_field: vs\_vector.Vg \+ field\_notes.Vg  
+* question: The Vg field note focuses entirely on seating arrangement facilitating conversation — this is social dynamics, not spatial geometry. What is the actual spatial geometry of Tou Tou An — its proportions, circulation, boundary definition? Does Vg 8 need to be re-grounded?  
+* why\_this\_question\_matters: Vg measures spatial geometric structure. Substituting social relations for geometry creates dimensional overlap with Ve, reducing vector independence.
+
+**QC-005**
+
+* qc\_type: Semantic  
+* target\_field: vs\_subtypes.Ve\_trigger  
+* question: Ve\_trigger is marked `external_narrative_human`, but the field note describes the event extending beyond the restaurant into the street while waiting for a taxi — a spatial boundary dissolution phenomenon. Can existing options capture this "event boundary blurring"? Should `spatiotemporal_extension` be added in v1.4?  
+* why\_this\_question\_matters: Ve\_trigger is the semantic anchor for the Ve score. If the trigger mechanism is imprecisely described, the reproducibility of Ve 8.5 cannot be verified.
+
+**QC-006**
+
+* qc\_type: Semantic  
+* target\_field: emotion\_trajectory.entry\_state  
+* question: entry\_state currently contains a full narrative of the conversation rather than the observer's internal state upon entering the venue. What was your psychological baseline at entry — anticipation, curiosity, neutral?  
+* why\_this\_question\_matters: entry\_state functions as the initial condition of the observer, establishing the starting point of the emotion trajectory. Narrative content should move to field\_notes; entry\_state requires a concise state description.
+
+---
+
+**C. Epistemic Boundary QC**
+
+**QC-007**
+
+* qc\_type: Epistemic Boundary  
+* target\_field: field\_notes.Vt  
+* question: The Vt field note grounds cultural density entirely in Akiko Freeman's personal philosophy and biographical background, not in the accumulated cultural heritage of Tou Tou An as a space. Is this Vt 8 measuring the space or the person?  
+* why\_this\_question\_matters: SDIndex is designed to measure spatial fields. If a high score derives from a person present in the space rather than the space itself, the record's validity in cross-site comparison is compromised.
+
+**QC-008**
+
+* qc\_type: Epistemic Boundary  
+* target\_field: research\_finding  
+* question: The current research\_finding reflects on fieldwork methodology ("turning point and emotion trajectory constitute the essence") rather than offering a specific finding about Tou Tou An as a site. What is the unique contribution of this site to the research?  
+* why\_this\_question\_matters: research\_finding connects individual records to the broader research argument. Methodological reflection should move to a methodological\_note field; this field requires site-specific insight.
+
+**QC-009**
+
+* qc\_type: Epistemic Boundary  
+* target\_field: observer\_flags.preloaded\_knowledge\_active  
+* question: preloaded\_knowledge\_active is marked true, but the record does not specify what the preloaded knowledge was — prior research on Freeman Winery, or existing knowledge of Burgundy winemaking style? What is the specific content of this flag?  
+* why\_this\_question\_matters: The specific content of preloaded knowledge affects the interpretation of Ve and Vt scores. Knowledge projection may have amplified perceived intensity; this must be explicitly documented for correct weighting in training data.
+
