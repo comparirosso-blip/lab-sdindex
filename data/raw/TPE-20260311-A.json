@@ -1,0 +1,80 @@
+{
+  "record_id": "TPE-20260311-A",
+  "schema_version": "1.3",
+  "generated_at": "2026-03-12T01:07:14.620Z",
+  "site": {
+    "name_zh": " 燈燈庵",
+    "name_local": "燈燈庵",
+    "name_en": "Tou Tou An",
+    "city": "Taipei",
+    "region": "TPE",
+    "country": "TW",
+    "site_type": "urban_public_space"
+  },
+  "observation": {
+    "date": "2026-03-11",
+    "time_of_day": "night",
+    "season": "winter",
+    "weather": "晴",
+    "crowd_density": "low",
+    "visit_mode": "solo_free",
+    "companion": "solo",
+    "observer_flags": {
+      "sensory_saturation_effect": false,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 8,
+    "Vl": 6,
+    "Vr": 6,
+    "Vg": 8,
+    "Ve": 8.5
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "biographical_founder",
+    "Vl_source": "artificial_neutral",
+    "Vr_source": "invited_openness",
+    "Vg_subtype": "geometric_organic",
+    "Ve_trigger": "external_narrative_human"
+  },
+  "sdindex_computation": {
+    "raw_sum": 36.5,
+    "max_possible": 50,
+    "sdindex_score": 7.3,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "high",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "field_notes": {
+    "Vt": "這裡的文化密度不是建築，而是 人物與釀酒傳統釀酒哲學明確指向 Burgundy tradition 一位東京出身的女性，在加州堅持勃根地風格 她用「自然無干預」描述釀酒方式",
+    "Vl": "偏白色的燈光讓酒杯的紅色顯得沒有深度，用餐的溫潤感降低，餐廳服務員的流動顯得粗糙。",
+    "Vr": "Pinot Noir 的質地輕柔，但配上海鮮時反而顯得更細緻。整體場域觸覺尚未形成非常乾淨的對比感，餐酒搭配有8款酒但是只有3個酒杯輪流替用。",
+    "Vg": "我用座位配置來詮釋空間幾何感，酒商把我安排在她正對面，對話頻繁，讓我能夠更深入了解酒莊歷史與主人的個性特質。",
+    "Ve": "原本只是一場餐酒會，但因為長時間對話，時間感被拉長等計程車時對話仍然延續，使事件沒有在餐廳結束。"
+  },
+  "emotion_trajectory": {
+    "entry_state": "因為酒商把我位子跟他安排在對面而已，所以我跟他進行了非常多的對話，首先我先請他介紹他的釀酒哲學他認為他的個性還有他的成長背景，因為他似乎是日本東京的貴族世家長大的小孩，所以他從小就喝法國勃根地的酒。一直到他開始要釀酒的時候他也決定他要勃根地的方式而非美國加州的釀酒方式來釀他酒莊的酒。然後他注重風土，而且強調自然無干預之後再對話的過程當中，",
+    "turning_point": "提到多年前阿貝歐巴馬總統在認識後的白宮打電話請他提供宴會的酒的時候，他說一剛開始第一通認為是詐騙，後來來來回回五次之後，對方才終於讓他相信他們真的是白宮而不是白宮餐廳。🤣但昨天吃的是台北市的燈燈庵餐廳，是一家日式料理剛開始的白酒似乎還行，但是後來的黑皮諾在我的印象當中是不太能夠配海鮮的，但是他們家的黑皮喔，卻意外的讓我覺得還行",
+    "exit_state": "席間又跟他聊到日本北海道的一家知名酒莊他們家的酒在日本的市場上非常的高價原因是因為產量小會員買了之後拿出來轉售，他跟我都認為那個價格太crazy。之後在等計程車的時候我又跟他聊了一下，我說我有去參觀長野縣的chateau Mercian Mariko ，我說那邊的葡萄採收都是利用當地居民來當義工採收的他說他知道而且日本有很多酒莊採收葡萄的方式都跟他們一樣都是利用志工。我說哇那這對酒莊來講成本真的是降低很多，他說對他在加州的酒莊只能聘請墨西哥人。後來又聊到說哇你喜歡在酒莊釀酒還是出來做推廣酒莊的事情他說當然是釀酒囉，他給我的感覺就是一個非常優雅的日本女性，但是他提到他的老公是一個非常奔放個性的美國人真如他的名字非常free的一個man\n",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "真正重要的，不是餐酒會本身，而是那個瞬間。"
+  },
+  "counterpoint": {
+    "paired_record": null
+  },
+  "ideal_condition": "能與酒莊主人面對面輕鬆對談時",
+  "research_finding": "我差點忽略的小事，真正構成了這場fieldwork的‘精髓：turning point、emotion trajectory\n",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-12T01:07:14.620Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
