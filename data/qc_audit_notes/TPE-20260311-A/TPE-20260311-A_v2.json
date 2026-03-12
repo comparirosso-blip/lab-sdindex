@@ -1,0 +1,96 @@
+{
+  "record_id": "TPE-20260311-A",
+  "schema_version": "1.3",
+  "record_version": "v2",
+  "generated_at": "2026-03-12T01:07:14.620Z",
+  "qc_revised_at": "2026-03-12",
+  "qc_source": "Gemini QC + Observer Response",
+  "qc_notes": {
+    "QC-001": "site_type changed from urban_public_space to invited_event (pending v1.4 vocabulary)",
+    "QC-002": "visit_mode retained as solo_free — observer proactively expressed intent to attend; not passively invited",
+    "QC-003": "Vl revised from 6 to 4.5 — field note describes negative lighting quality; score aligned with qualitative description",
+    "QC-004": "Vg revised from 8 to 4 — re-grounded in spatial geometry: rectangular second-floor room, narrow circulation, constrained staff movement. Previous note was social dynamics, not geometry.",
+    "QC-005": "Ve_trigger retained as external_narrative_human; spatiotemporal_extension phenomenon noted in field note; flagged for v1.4 trigger vocabulary expansion",
+    "QC-006": "entry_state rewritten to reflect observer's internal state at entry",
+    "QC-007": "Vt revised from 8 to 6 — cultural density attributed to winemaker's presence (Akiko Freeman), not venue itself; noted as epistemic boundary case",
+    "QC-008": "research_finding rewritten to reflect site-specific contribution rather than methodological reflection",
+    "QC-009": "preloaded_knowledge_active content specified"
+  },
+  "site": {
+    "name_zh": "燈燈庵",
+    "name_local": "燈燈庵",
+    "name_en": "Tou Tou An",
+    "city": "Taipei",
+    "region": "TPE",
+    "country": "TW",
+    "site_type": "invited_event"
+  },
+  "observation": {
+    "date": "2026-03-11",
+    "time_of_day": "night",
+    "season": "winter",
+    "weather": "晴",
+    "crowd_density": "low",
+    "visit_mode": "solo_free",
+    "companion": "solo",
+    "observer_flags": {
+      "sensory_saturation_effect": false,
+      "preloaded_knowledge_active": true,
+      "preloaded_knowledge_content": "Personal consumer of Freeman Pinot Noir; extensive prior visits to Japanese wineries in preceding months; independent wine research background.",
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 6,
+    "Vl": 4.5,
+    "Vr": 6,
+    "Vg": 4,
+    "Ve": 8.5
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "biographical_founder",
+    "Vl_source": "artificial_neutral",
+    "Vr_source": "invited_openness",
+    "Vg_subtype": "geometric_organic",
+    "Ve_trigger": "external_narrative_human"
+  },
+  "sdindex_computation": {
+    "raw_sum": 29,
+    "max_possible": 50,
+    "sdindex_score": 5.8,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "high",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "field_notes": {
+    "Vt": "Cultural density in this record is attributed to the winemaker's presence (Akiko Freeman), not the venue itself. Freeman's philosophy explicitly references Burgundy tradition — a Tokyo-born woman insisting on Burgundy style in California, describing her approach as 'natural non-intervention.' Epistemic note: Vt here measures a person, not a space. Score adjusted to 6 to reflect this boundary.",
+    "Vl": "White-toned artificial lighting reduced the visual depth of wine color in glass. Warm dining ambiance was diminished. Staff movement appeared coarse under this light. Negative qualitative impact on overall sensory experience.",
+    "Vr": "Pinot Noir texture was delicate; pairing with seafood unexpectedly enhanced its refinement. Overall tactile field lacked clean contrast. Eight wines served across only three rotating glasses — physical interruption to sensory continuity.",
+    "Vg": "Second-floor rectangular space. Access via elevator and staircase. Dining area is compact with narrow circulation paths for staff and guests. Human flow constrained. Spatial geometry is moderately enclosing but functionally restrictive rather than intentionally curated. Score reflects negative spatial geometry.",
+    "Ve": "Event originally bounded by the restaurant. Extended dialogue with Akiko caused time perception to stretch significantly. Conversation continued while waiting for taxi outside — the event had no clean spatial or temporal endpoint. Note: spatiotemporal extension phenomenon observed; recommend adding Ve_trigger option in v1.4."
+  },
+  "emotion_trajectory": {
+    "entry_state": "No particular expectation. The venue was cold — air conditioning caused physical discomfort upon arrival. Conversation with Akiko and a shared appreciation for Shafer Winery gradually shifted the atmosphere to warm engagement.",
+    "turning_point": "Akiko recounted the story of Obama's White House calling to request her wine for a state dinner — she initially dismissed it as a scam, requiring five calls before she believed it was genuine. This moment of unexpected biographical intimacy reframed the entire evening.",
+    "exit_state": "Discussion extended to the street while waiting for a taxi: Chateau Mercian Mariko volunteer harvest model, North Hokkaido pricing bubble, preference for winemaking over promotion. Final impression: an exceptionally elegant Japanese woman paired with, by her own description, a very free American man.",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "真正重要的，不是餐酒會本身，而是那個瞬間。"
+  },
+  "counterpoint": {
+    "paired_record": null
+  },
+  "ideal_condition": "能與酒莊主人面對面輕鬆對談時",
+  "research_finding": "This record identifies two vocabulary gaps in QuickForm v1.3 requiring v1.4 resolution: (1) site_type lacks invited_event classification for private winemaker dinners; (2) Ve_trigger lacks spatiotemporal_extension for events whose boundaries dissolve beyond the physical venue. Additionally, this record demonstrates a Vt epistemic boundary case: cultural density sourced from a person present in the space rather than the space itself.",
+  "methodological_note": "Original QC reflection: turning point and emotion trajectory constitute the fieldwork essence of this record. The key insight emerged not from the space but from sustained biographical dialogue — a pattern likely specific to sensory_event field_type records.",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-12T01:07:14.620Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
