@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CKV 快速田野評分表 v1.4.1</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #faf7f2; font-family: 'Georgia', serif; }
+  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 3px; background: transparent; cursor: pointer; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #5a4a3a; border: 2px solid #faf7f2; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+  input[type=range]::-webkit-slider-runnable-track { height: 3px; background: linear-gradient(to right, #e8ddd0, #5a4a3a); border-radius: 2px; }
+  textarea { font-family: 'Georgia', serif; }
+  ::selection { background: #d4c5b0; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+const { useState, useCallback } = React;
+
+// ─── ENUMS ───────────────────────────────────────────────
+const SITE_TYPES = [
+  "zen_temple_garden","imperial_garden","shinto_shrine",
+  "commercial_urban","commercial_mall","residential_heritage",
+  "winery_vineyard","ryokan_onsen","museum_gallery",
+  "natural_landscape","street_market","cafe_restaurant",
+  "heritage_corridor","heritage_adaptive_reuse","industrial_heritage",
+  "religious_non_japanese","public_infrastructure","other"
+];
+const VISIT_MODES = ["solo_free","couple_free","group_free","guided_tour","research_session","repeat_casual"];
+const SEASONS = ["early_spring","spring","late_spring","early_summer","summer","late_summer","early_autumn","autumn","late_autumn","early_winter","winter","late_winter"];
+const TIMES = ["dawn","morning","midday","afternoon","dusk","evening","night"];
+const CROWDS = ["empty","very_low","low","low_managed","moderate","high","very_high","overwhelming"];
+
+const VT_SUBTYPES = ["architectural_heritage","agricultural_terroir","biographical_founder","intangible_practice","corporate_constructed","non_intervention_natural","literary_artistic","religious_spiritual","industrial_historical"];
+const VR_SOURCES = ["architectural_design","social_protocol","invited_openness","cognitive_compression","existential_permission","guided_tour_managed","commercial_flow_control","natural_topography"];
+const VE_TRIGGERS = ["intrinsic_spatial","intrinsic_material","external_narrative_human","external_narrative_AI","active_information_retrieval","seasonal_temporal","ritual_ceremonial","absence_void","accumulated_patina","biographical_trace"];
+const VE_VALENCES = ["positive","negative","ambivalent","neutral"];
+const VL_SOURCES = ["natural_diffused","natural_direct","artificial_warm","artificial_neutral","artificial_cool","mixed","candlelight_lantern"];
+const VG_SUBTYPES = ["enclosure_deep","enclosure_shallow","vertical_dramatic","horizontal_expansive","layered_sequential","open_unframed","geometric_precise","geometric_organic"];
+const RESILIENCE_LEVELS = ["low","medium","high","exceptional"];
+const PHENOM_MODES = ["pure","mediated","augmented"];
+const ASSET_CLASSES = ["gold_sample_pure","gold_sample_mediated","gold_sample_augmented","reference_baseline","exploratory","conditional"];
+
+// ─── COMPONENTS ──────────────────────────────────────────
+const TextField = ({label,value,onChange,placeholder,multiline}) => (
+  <div style={{marginBottom:"1rem"}}>
+    <label style={{display:"block",fontSize:"0.8rem",color:"#8b7355",marginBottom:"0.3rem",letterSpacing:"0.05em"}}>{label}</label>
+    {multiline
+      ? <textarea value={value} onChange={e=>onChange(e.target.value)} placeholder={placeholder}
+          style={{width:"100%",padding:"0.6rem 0.8rem",border:"1px solid #e0d5c5",borderRadius:"4px",background:"#fffdf9",fontSize:"0.85rem",color:"#3a3020",minHeight:"80px",resize:"vertical",lineHeight:"1.6"}} />
+      : <input value={value} onChange={e=>onChange(e.target.value)} placeholder={placeholder}
+          style={{width:"100%",padding:"0.6rem 0.8rem",border:"1px solid #e0d5c5",borderRadius:"4px",background:"#fffdf9",fontSize:"0.85rem",color:"#3a3020"}} />
+    }
+  </div>
+);
+
+const SelectField = ({label,value,onChange,options,badge}) => (
+  <div style={{marginBottom:"1rem"}}>
+    <label style={{display:"block",fontSize:"0.8rem",color:"#8b7355",marginBottom:"0.3rem",letterSpacing:"0.05em"}}>
+      {label}
+      {badge && <span style={{fontFamily:"'Courier New',monospace",fontSize:"0.6rem",background:"#e8ddd0",color:"#8b7355",padding:"0.1rem 0.4rem",borderRadius:"2px",marginLeft:"0.6rem",verticalAlign:"middle",letterSpacing:"0.05em"}}>{badge}</span>}
+    </label>
+    <select value={value} onChange={e=>onChange(e.target.value)}
+      style={{width:"100%",padding:"0.6rem 0.8rem",border:"1px solid #e0d5c5",borderRadius:"4px",background:"#fffdf9",fontSize:"0.85rem",color:"#3a3020"}}>
+      {options.map(o=><option key={o} value={o}>{o}</option>)}
+    </select>
+  </div>
+);
+
+const ScoreSlider = ({label,dim,value,onChange,note,onNoteChange}) => (
+  <div style={{marginBottom:"2rem",paddingBottom:"1.5rem",borderBottom:"1px solid #f0e8dc"}}>
+    <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:"0.5rem"}}>
+      <span style={{fontSize:"0.85rem",color:"#5a4a3a",fontWeight:"bold"}}>{label}</span>
+      <span style={{fontFamily:"'Courier New',monospace",fontSize:"1.1rem",color:"#5a4a3a",fontWeight:"bold"}}>{value.toFixed(1)}</span>
+    </div>
+    <input type="range" min="0" max="10" step="0.5" value={value} onChange={e=>onChange(parseFloat(e.target.value))} />
+    <div style={{display:"flex",justifyContent:"space-between",fontSize:"0.65rem",color:"#c4b5a0",marginTop:"0.2rem"}}>
+      <span>0 — 無</span><span>5 — 中等</span><span>10 — 極致</span>
+    </div>
+    <textarea value={note} onChange={e=>onNoteChange(e.target.value)} placeholder={`${dim} 田野筆記...`}
+      style={{width:"100%",marginTop:"0.8rem",padding:"0.5rem 0.7rem",border:"1px solid #ede5d8",borderRadius:"4px",background:"#fffdf9",fontSize:"0.78rem",color:"#5a4a3a",minHeight:"50px",resize:"vertical",fontFamily:"'Georgia',serif",lineHeight:"1.5"}} />
+  </div>
+);
+
+const ButtonGroup = ({label,options,value,onChange,badge,hint}) => (
+  <div style={{marginBottom:"1.2rem"}}>
+    <label style={{display:"block",fontSize:"0.8rem",color:"#8b7355",marginBottom:"0.4rem",letterSpacing:"0.05em"}}>
+      {label}
+      {badge && <span style={{fontFamily:"'Courier New',monospace",fontSize:"0.6rem",background:badge==="v1.4"?"#d4e8d0":"#e8ddd0",color:badge==="v1.4"?"#4a7345":"#8b7355",padding:"0.1rem 0.4rem",borderRadius:"2px",marginLeft:"0.6rem",verticalAlign:"middle",letterSpacing:"0.05em"}}>{badge}</span>}
+    </label>
+    <div style={{display:"flex",flexWrap:"wrap",gap:"0.4rem"}}>
+      {options.map(o=>(
+        <button key={o} onClick={()=>onChange(o)}
+          style={{padding:"0.35rem 0.7rem",border:value===o?"2px solid #5a4a3a":"1px solid #e0d5c5",borderRadius:"3px",
+            background:value===o?"#5a4a3a":"#fffdf9",color:value===o?"#faf7f2":"#5a4a3a",
+            fontSize:"0.72rem",cursor:"pointer",fontFamily:"'Courier New',monospace",transition:"all 0.15s"}}>
+          {o}
+        </button>
+      ))}
+    </div>
+    {hint && <div style={{fontSize:"0.65rem",color:"#b8a88a",marginTop:"0.3rem",fontStyle:"italic"}}>{hint}</div>}
+  </div>
+);
+
+// ─── MAIN APP ────────────────────────────────────────────
+function App() {
+  const [step, setStep] = useState(0);
+  const [copied, setCopied] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  // Step 0: Meta
+  const [meta, setMeta] = useState({
+    site_name_zh:"",site_name_local:"",site_name_en:"",city:"",region:"",country:"",
+    date:"",site_type:SITE_TYPES[0],visit_mode:VISIT_MODES[0],companion:"",weather:"",
+    season:SEASONS[0],time_of_day:TIMES[2],crowd_density:CROWDS[2]
+  });
+
+  // Step 1: Scores
+  const [scores, setScores] = useState({Vt:5.0,Vl:5.0,Vr:5.0,Vg:5.0,Ve:5.0});
+  const [notes, setNotes] = useState({Vt:"",Vl:"",Vr:"",Vg:"",Ve:""});
+
+  // Step 2: Subtypes + Resilience + Phenomenology
+  const [subtypes, setSubtypes] = useState({
+    Vt_subtype:VT_SUBTYPES[0], Vl_source:VL_SOURCES[0], Vr_source:VR_SOURCES[0],
+    Vg_subtype:VG_SUBTYPES[0], Ve_trigger:VE_TRIGGERS[0], Ve_valence:VE_VALENCES[0]
+  });
+  const [resilience, setResilience] = useState({
+    formal_aesthetic_resilience:RESILIENCE_LEVELS[1],
+    phenomenological_access_freedom:RESILIENCE_LEVELS[2],
+    resilience_note:""
+  });
+  const [phenomMode, setPhenomMode] = useState(PHENOM_MODES[0]);
+
+  // Step 3: Emotion
+  const [emotion, setEmotion] = useState({entry_state:"",turning_point:"",exit_state:"",key_insight:""});
+  const [flags, setFlags] = useState({sensory_saturation_effect:false,preloaded_knowledge_active:false,ai_collaboration_during_visit:false,repeat_visit:false});
+
+  // Step 4: Extras
+  const [idealCondition, setIdealCondition] = useState("");
+  const [researchFinding, setResearchFinding] = useState("");
+  const [pairedRecord, setPairedRecord] = useState("");
+  const [comparisonNote, setComparisonNote] = useState("");
+  const [assetClass, setAssetClass] = useState(ASSET_CLASSES[3]);
+
+  // Computed
+  const rawSum = Object.values(scores).reduce((a,b)=>a+b,0);
+  const sdindex = (rawSum / 50 * 10);
+
+  const generateRecordId = () => {
+    const prefix = meta.region || "XXX";
+    const dateStr = meta.date.replace(/-/g,"");
+    return `${prefix}-${dateStr}-A`;
+  };
+
+  const generateJSON = () => {
+    return JSON.stringify({
+      record_id: generateRecordId(),
+      schema_version: "1.4",
+      generated_at: new Date().toISOString(),
+      site: {
+        name_zh: meta.site_name_zh,
+        name_local: meta.site_name_local || null,
+        name_en: meta.site_name_en,
+        city: meta.city, region: meta.region, country: meta.country,
+        site_type: meta.site_type
+      },
+      observation: {
+        date: meta.date, season: meta.season, time_of_day: meta.time_of_day,
+        visit_mode: meta.visit_mode, crowd_density: meta.crowd_density,
+        companion: meta.companion || null, weather: meta.weather
+      },
+      vs_vector: { Vt: scores.Vt, Vl: scores.Vl, Vr: scores.Vr, Vg: scores.Vg, Ve: scores.Ve },
+      vs_subtypes: {
+        Vt_subtype: subtypes.Vt_subtype, Vl_source: subtypes.Vl_source,
+        Vr_source: subtypes.Vr_source, Vg_subtype: subtypes.Vg_subtype,
+        Ve_trigger: subtypes.Ve_trigger, Ve_valence: subtypes.Ve_valence
+      },
+      sdindex_computation: {
+        raw_sum: parseFloat(rawSum.toFixed(1)),
+        sdindex_score: parseFloat(sdindex.toFixed(2)),
+        formula: "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+      },
+      resilience: {
+        formal_aesthetic_resilience: resilience.formal_aesthetic_resilience,
+        phenomenological_access_freedom: resilience.phenomenological_access_freedom,
+        resilience_note: resilience.resilience_note || null
+      },
+      phenomenology_mode: phenomMode,
+      field_notes: { Vt: notes.Vt||null, Vl: notes.Vl||null, Vr: notes.Vr||null, Vg: notes.Vg||null, Ve: notes.Ve||null },
+      emotion_trajectory: {
+        entry_state: emotion.entry_state, turning_point: emotion.turning_point||null,
+        exit_state: emotion.exit_state, key_insight: emotion.key_insight||null
+      },
+      observer_flags: flags,
+      ideal_condition: idealCondition || null,
+      research_finding: researchFinding || null,
+      counterpoint: {
+        paired_record: pairedRecord || null,
+        comparison_note: comparisonNote || null
+      },
+      asset_class: assetClass,
+      ip_status: {
+        locked: false, fingerprint_sha256: null,
+        author_id: "sabrina-lin", license: "CC-BY-4.0", locked_at: null
+      }
+    }, null, 2);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(generateJSON());
+    setCopied(true); setTimeout(()=>setCopied(false),2000);
+  };
+
+  const handleSave = () => {
+    const blob = new Blob([generateJSON()], {type:"application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href = url;
+    a.download = `${generateRecordId()}.json`; a.click();
+    URL.revokeObjectURL(url);
+    setSaved(true); setTimeout(()=>setSaved(false),2000);
+  };
+
+  const handleReset = () => {
+    setStep(0);
+    setMeta({site_name_zh:"",site_name_local:"",site_name_en:"",city:"",region:"",country:"",date:"",site_type:SITE_TYPES[0],visit_mode:VISIT_MODES[0],companion:"",weather:"",season:SEASONS[0],time_of_day:TIMES[2],crowd_density:CROWDS[2]});
+    setScores({Vt:5.0,Vl:5.0,Vr:5.0,Vg:5.0,Ve:5.0});
+    setNotes({Vt:"",Vl:"",Vr:"",Vg:"",Ve:""});
+    setSubtypes({Vt_subtype:VT_SUBTYPES[0],Vl_source:VL_SOURCES[0],Vr_source:VR_SOURCES[0],Vg_subtype:VG_SUBTYPES[0],Ve_trigger:VE_TRIGGERS[0],Ve_valence:VE_VALENCES[0]});
+    setResilience({formal_aesthetic_resilience:RESILIENCE_LEVELS[1],phenomenological_access_freedom:RESILIENCE_LEVELS[2],resilience_note:""});
+    setPhenomMode(PHENOM_MODES[0]);
+    setEmotion({entry_state:"",turning_point:"",exit_state:"",key_insight:""});
+    setFlags({sensory_saturation_effect:false,preloaded_knowledge_active:false,ai_collaboration_during_visit:false,repeat_visit:false});
+    setIdealCondition(""); setResearchFinding(""); setPairedRecord(""); setComparisonNote("");
+    setAssetClass(ASSET_CLASSES[3]);
+    setCopied(false); setSaved(false);
+  };
+
+  // ─── STYLES ──────────────────────────────────────────
+  const sectionTitle = {fontSize:"1rem",color:"#5a4a3a",fontWeight:"bold",marginBottom:"1.2rem",paddingBottom:"0.5rem",borderBottom:"2px solid #e8ddd0",letterSpacing:"0.05em"};
+  const btnPrimary = {padding:"0.6rem 1.5rem",background:"#5a4a3a",color:"#faf7f2",border:"none",borderRadius:"4px",fontSize:"0.85rem",cursor:"pointer",fontFamily:"'Georgia',serif"};
+  const btnSecondary = {padding:"0.6rem 1.5rem",background:"transparent",color:"#5a4a3a",border:"1px solid #d4c5b0",borderRadius:"4px",fontSize:"0.85rem",cursor:"pointer",fontFamily:"'Georgia',serif"};
+
+  const DIMS = [["Vt — 傳統文化密度","Vt"],["Vl — 光線質感","Vl"],["Vr — 空間克制度","Vr"],["Vg — 空間幾何結構感","Vg"],["Ve — 時間感","Ve"]];
+  const stepLabels = ["地點","評分","標註","情緒","備註","輸出"];
+
+  const FlagToggle = ({label,checked,onChange}) => (
+    <div style={{display:"flex",alignItems:"center",gap:"0.5rem",marginBottom:"0.6rem",cursor:"pointer"}} onClick={()=>onChange(!checked)}>
+      <div style={{width:"18px",height:"18px",border:"1px solid #d4c5b0",borderRadius:"3px",background:checked?"#5a4a3a":"#fffdf9",display:"flex",alignItems:"center",justifyContent:"center"}}>
+        {checked && <span style={{color:"#faf7f2",fontSize:"0.7rem"}}>✓</span>}
+      </div>
+      <span style={{fontSize:"0.8rem",color:"#5a4a3a"}}>{label}</span>
+    </div>
+  );
+
+  return (
+    <div style={{maxWidth:"640px",margin:"0 auto",padding:"2rem 1.5rem"}}>
+      {/* Header */}
+      <div style={{textAlign:"center",marginBottom:"2.5rem"}}>
+        <div style={{fontFamily:"'Courier New',monospace",fontSize:"0.65rem",color:"#b8a88a",letterSpacing:"0.3em",marginBottom:"0.5rem"}}>CULTURAL KNOWLEDGE VECTOR · SDIndex Framework v1.4</div>
+        <h1 style={{fontSize:"1.4rem",color:"#3a3020",fontWeight:"normal",letterSpacing:"0.1em"}}>CKV 快速田野評分表</h1>
+        <div style={{fontFamily:"'Courier New',monospace",fontSize:"0.6rem",color:"#c4b5a0",marginTop:"0.3rem"}}>QuickForm v1.4.1 · schema v1.4</div>
+      </div>
+
+      {/* Step indicator */}
+      <div style={{display:"flex",justifyContent:"center",gap:"0.3rem",marginBottom:"2.5rem"}}>
+        {stepLabels.map((s,i)=>(
+          <div key={i} onClick={()=>setStep(i)} style={{cursor:"pointer",padding:"0.3rem 0.6rem",borderRadius:"3px",fontSize:"0.7rem",fontFamily:"'Courier New',monospace",
+            background:i===step?"#5a4a3a":i<step?"#e8ddd0":"transparent",
+            color:i===step?"#faf7f2":i<step?"#8b7355":"#c4b5a0",
+            border:i===step?"none":"1px solid #e8ddd0"}}>
+            {i+1}. {s}
+          </div>
+        ))}
+      </div>
+
+      {/* Step 0: 地點 */}
+      {step===0 && (
+        <div>
+          <div style={sectionTitle}>地點基本資訊</div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"1rem"}}>
+            <TextField label="地名（中文）" value={meta.site_name_zh} onChange={v=>setMeta({...meta,site_name_zh:v})} placeholder="龍安寺 / 迪化街" />
+            <TextField label="地名（英文）" value={meta.site_name_en} onChange={v=>setMeta({...meta,site_name_en:v})} placeholder="Ryoanji / Dihua Street" />
+          </div>
+          <TextField
+            label={<span>地名（當地語言）<span style={{fontFamily:"'Courier New',monospace",fontSize:"0.6rem",background:"#e8ddd0",color:"#8b7355",padding:"0.1rem 0.4rem",borderRadius:"2px",marginLeft:"0.6rem",verticalAlign:"middle"}}>optional</span></span>}
+            value={meta.site_name_local}
+            onChange={v=>setMeta({...meta,site_name_local:v})}
+            placeholder="龍安寺（日文）/ Gasometer（德文）"
+          />
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"1rem"}}>
+            <TextField label="城市" value={meta.city} onChange={v=>setMeta({...meta,city:v})} placeholder="Kyoto / Vienna" />
+            <TextField label="地區代碼" value={meta.region} onChange={v=>setMeta({...meta,region:v.toUpperCase()})} placeholder="KYT / VIE / TPE" />
+            <TextField label="國家代碼" value={meta.country} onChange={v=>setMeta({...meta,country:v.toUpperCase()})} placeholder="JP / AT / TW" />
+          </div>
+          <TextField label="田野日期" value={meta.date} onChange={v=>setMeta({...meta,date:v})} placeholder="2026-03-14" />
+          <SelectField label="場域類型" value={meta.site_type} onChange={v=>setMeta({...meta,site_type:v})} options={SITE_TYPES} badge="v1.4 +heritage_adaptive_reuse" />
+          <SelectField label="參訪模式" value={meta.visit_mode} onChange={v=>setMeta({...meta,visit_mode:v})} options={VISIT_MODES} />
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"1rem"}}>
+            <TextField label="同行者" value={meta.companion} onChange={v=>setMeta({...meta,companion:v})} placeholder="老公 / solo" />
+            <TextField label="天氣" value={meta.weather} onChange={v=>setMeta({...meta,weather:v})} placeholder="晴、陰、雨..." />
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:"1rem"}}>
+            <SelectField label="季節" value={meta.season} onChange={v=>setMeta({...meta,season:v})} options={SEASONS} />
+            <SelectField label="時段" value={meta.time_of_day} onChange={v=>setMeta({...meta,time_of_day:v})} options={TIMES} />
+            <SelectField label="人潮密度" value={meta.crowd_density} onChange={v=>setMeta({...meta,crowd_density:v})} options={CROWDS} />
+          </div>
+        </div>
+      )}
+
+      {/* Step 1: 評分 */}
+      {step===1 && (
+        <div>
+          <div style={sectionTitle}>五維感官向量 Vs</div>
+          <div style={{textAlign:"center",marginBottom:"2rem"}}>
+            <span style={{fontFamily:"'Courier New',monospace",fontSize:"1.8rem",color:"#5a4a3a"}}>{sdindex.toFixed(2)}</span>
+            <span style={{fontSize:"0.75rem",color:"#b8a88a",marginLeft:"0.5rem"}}>SDIndex</span>
+            <span style={{fontFamily:"'Courier New',monospace",fontSize:"0.7rem",color:"#c4b5a0",display:"block",marginTop:"0.3rem"}}>
+              raw: {rawSum.toFixed(1)} / 50
+            </span>
+          </div>
+          {DIMS.map(([label,dim])=>(
+            <ScoreSlider key={dim} label={label} dim={dim}
+              value={scores[dim]} onChange={v=>setScores({...scores,[dim]:v})}
+              note={notes[dim]} onNoteChange={v=>setNotes({...notes,[dim]:v})} />
+          ))}
+        </div>
+      )}
+
+      {/* Step 2: 標註 */}
+      {step===2 && (
+        <div>
+          <div style={sectionTitle}>維度子類型與觀測分類</div>
+
+          <SelectField label="Vt 文化密度來源" value={subtypes.Vt_subtype} onChange={v=>setSubtypes({...subtypes,Vt_subtype:v})} options={VT_SUBTYPES} />
+          <SelectField label="Vl 光源類型" value={subtypes.Vl_source} onChange={v=>setSubtypes({...subtypes,Vl_source:v})} options={VL_SOURCES} badge="v1.2+" />
+          <SelectField label="Vr 克制來源" value={subtypes.Vr_source} onChange={v=>setSubtypes({...subtypes,Vr_source:v})} options={VR_SOURCES} />
+          <SelectField label="Vg 幾何子類型" value={subtypes.Vg_subtype} onChange={v=>setSubtypes({...subtypes,Vg_subtype:v})} options={VG_SUBTYPES} badge="v1.2+" />
+          <SelectField label="Ve 觸發機制" value={subtypes.Ve_trigger} onChange={v=>setSubtypes({...subtypes,Ve_trigger:v})} options={VE_TRIGGERS} badge="v1.4 +active_info_retrieval" />
+
+          <ButtonGroup label="Ve 情緒方向（Valence）" options={VE_VALENCES} value={subtypes.Ve_valence}
+            onChange={v=>setSubtypes({...subtypes,Ve_valence:v})} badge="v1.4"
+            hint="同樣高分的 Ve 可以是敬畏(+)也可以是寂寞(-)。桂離宮的「寂」是寂寞不是寂靜。" />
+
+          <div style={{marginTop:"2rem",paddingTop:"1.5rem",borderTop:"2px solid #e8ddd0"}}>
+            <div style={{...sectionTitle,borderBottom:"none",paddingBottom:0}}>耐受度（拆分）</div>
+            <div style={{fontSize:"0.7rem",color:"#b8a88a",marginBottom:"1rem",fontStyle:"italic"}}>
+              v1.4：空間的「形式美學耐受度」與觀察者的「現象學自由度」是兩個獨立變數。
+            </div>
+            <ButtonGroup label="形式美學耐受度 (Formal Aesthetic Resilience)" options={RESILIENCE_LEVELS}
+              value={resilience.formal_aesthetic_resilience}
+              onChange={v=>setResilience({...resilience,formal_aesthetic_resilience:v})} badge="v1.4"
+              hint="空間本身抗干擾能力。桂離宮=exceptional（完美幾何設計），LaLaport=low（中庭被噪音淹沒）" />
+            <ButtonGroup label="現象學自由度 (Phenomenological Access Freedom)" options={RESILIENCE_LEVELS}
+              value={resilience.phenomenological_access_freedom}
+              onChange={v=>setResilience({...resilience,phenomenological_access_freedom:v})} badge="v1.4"
+              hint="觀察者自由度。桂離宮=low（被導覽步調控制），二年坂=high（自由停留）" />
+            <TextField label="耐受度備註" value={resilience.resilience_note}
+              onChange={v=>setResilience({...resilience,resilience_note:v})} placeholder="兩個維度顯著分離時說明原因..." multiline />
+          </div>
+
+          <div style={{marginTop:"2rem",paddingTop:"1.5rem",borderTop:"2px solid #e8ddd0"}}>
+            <ButtonGroup label="現象學模式 (Phenomenology Mode)" options={PHENOM_MODES}
+              value={phenomMode} onChange={setPhenomMode} badge="v1.4"
+              hint="pure=無外部介入 / mediated=有制度性中介（導覽、門票管制）/ augmented=AI介入改變了感知結果" />
+          </div>
+        </div>
+      )}
+
+      {/* Step 3: 情緒 */}
+      {step===3 && (
+        <div>
+          <div style={sectionTitle}>情緒軌跡 Emotion Trajectory</div>
+          <TextField label="入場狀態" value={emotion.entry_state} onChange={v=>setEmotion({...emotion,entry_state:v})} placeholder="放鬆、期待、疲倦..." />
+          <TextField label="轉折點" value={emotion.turning_point} onChange={v=>setEmotion({...emotion,turning_point:v})} placeholder="（無轉折可留空）" />
+          <TextField label="離場狀態" value={emotion.exit_state} onChange={v=>setEmotion({...emotion,exit_state:v})} placeholder="沈靜、感動、無感..." />
+          <TextField label="核心洞察 key_insight" value={emotion.key_insight} onChange={v=>setEmotion({...emotion,key_insight:v})} placeholder="一句話結晶..." multiline />
+
+          <div style={{marginTop:"1.5rem",paddingTop:"1rem",borderTop:"1px solid #f0e8dc"}}>
+            <div style={{fontSize:"0.8rem",color:"#8b7355",marginBottom:"0.8rem",letterSpacing:"0.05em"}}>觀察者旗標</div>
+            <FlagToggle label="感官飽和效應 (sensory_saturation)" checked={flags.sensory_saturation_effect} onChange={v=>setFlags({...flags,sensory_saturation_effect:v})} />
+            <FlagToggle label="預載知識啟動 (preloaded_knowledge)" checked={flags.preloaded_knowledge_active} onChange={v=>setFlags({...flags,preloaded_knowledge_active:v})} />
+            <FlagToggle label="參訪中AI協作 (ai_collaboration)" checked={flags.ai_collaboration_during_visit} onChange={v=>setFlags({...flags,ai_collaboration_during_visit:v})} />
+            <FlagToggle label="重複造訪 (repeat_visit)" checked={flags.repeat_visit} onChange={v=>setFlags({...flags,repeat_visit:v})} />
+          </div>
+        </div>
+      )}
+
+      {/* Step 4: 備註 */}
+      {step===4 && (
+        <div>
+          <div style={sectionTitle}>備註與分類</div>
+          <TextField label="最佳採樣條件 ideal_condition" value={idealCondition} onChange={setIdealCondition}
+            placeholder="客觀條件：早晨7點前、非楓葉季、weekday..." multiline />
+          <TextField label="研究發現 research_finding" value={researchFinding} onChange={setResearchFinding}
+            placeholder="陳述句，非疑問句。例：商業空間SDIndex與Vg-Vl落差呈負相關。" multiline />
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"1rem"}}>
+            <TextField label="對標記錄 paired_record" value={pairedRecord} onChange={setPairedRecord} placeholder="NGN-20260501-A" />
+            <TextField label="對標說明" value={comparisonNote} onChange={setComparisonNote} placeholder="測試什麼假設..." />
+          </div>
+          <SelectField label="資產分類 asset_class" value={assetClass} onChange={setAssetClass} options={ASSET_CLASSES} badge="v1.4 三層金樣本" />
+        </div>
+      )}
+
+      {/* Step 5: 輸出 */}
+      {step===5 && (
+        <div>
+          <div style={sectionTitle}>JSON 輸出</div>
+
+          {/* Summary header */}
+          <div style={{background:"#f5f0e8",borderRadius:"6px",padding:"1.2rem",marginBottom:"1.5rem",fontFamily:"'Courier New',monospace",fontSize:"0.75rem",color:"#5a4a3a",lineHeight:"1.8"}}>
+            <div><strong>{generateRecordId()}</strong> · {meta.site_name_zh} ({meta.site_name_en})</div>
+            <div>SDIndex: <strong>{sdindex.toFixed(2)}</strong> · Vs: [{scores.Vt},{scores.Vl},{scores.Vr},{scores.Vg},{scores.Ve}]</div>
+            <div>Resilience: FAR={resilience.formal_aesthetic_resilience} · PAF={resilience.phenomenological_access_freedom}</div>
+            <div>Mode: {phenomMode} · Ve valence: {subtypes.Ve_valence} · Asset: {assetClass}</div>
+          </div>
+
+          <pre style={{background:"#2a2420",color:"#e8ddd0",padding:"1.2rem",borderRadius:"6px",fontSize:"0.7rem",lineHeight:"1.5",overflow:"auto",maxHeight:"500px",whiteSpace:"pre-wrap"}}>
+            {generateJSON()}
+          </pre>
+
+          <div style={{display:"flex",gap:"0.8rem",marginTop:"1.5rem",flexWrap:"wrap"}}>
+            <button style={btnPrimary} onClick={handleCopy}>{copied?"✓ Copied":"Copy JSON"}</button>
+            <button style={{...btnPrimary,background:"#5a4a3a"}} onClick={handleSave}>{saved?"✓ 已下載":"下載 .json 檔"}</button>
+            <button style={btnSecondary} onClick={handleReset}>＋ 新記錄</button>
+          </div>
+        </div>
+      )}
+
+      {/* Navigation */}
+      <div style={{marginTop:"3rem",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+        {step>0
+          ? <button style={btnSecondary} onClick={()=>setStep(step-1)}>← 上一步</button>
+          : <div/>}
+        {step<5
+          ? <button style={btnPrimary} onClick={()=>setStep(step+1)}>下一步 →</button>
+          : <div/>}
+      </div>
+
+      <div style={{marginTop:"4rem",paddingTop:"2rem",borderTop:"1px solid #e8ddd0",fontFamily:"'Courier New',monospace",fontSize:"0.65rem",color:"#c4b5a0",textAlign:"center",letterSpacing:"0.1em"}}>
+        CKV Schema v1.4 · SDIndex Framework · © Sabrina · CC-BY-4.0
+        <br/><span style={{fontSize:"0.6rem",opacity:0.7}}>v1.4 changes: Ve_valence · phenomenology_mode · split resilience (FAR+PAF) · heritage_adaptive_reuse · active_information_retrieval</span>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
