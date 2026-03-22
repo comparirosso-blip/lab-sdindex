@@ -1,0 +1,88 @@
+{
+  "record_id": "KYT-20260322-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-22T11:17:18.350Z",
+  "site": {
+    "name_zh": "京都御苑",
+    "name_local": "京都御苑",
+    "name_en": "Kyoto Gyoen National Garden",
+    "city": "Kyoto",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "imperial_garden"
+  },
+  "observation": {
+    "date": "2026-03-22",
+    "time_of_day": "morning",
+    "season": "early_spring",
+    "weather": "陰",
+    "crowd_density": "moderate",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": false,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": true
+    }
+  },
+  "vs_vector": {
+    "Vt": 7,
+    "Vl": 7,
+    "Vr": 9,
+    "Vg": 5,
+    "Ve": 8
+  },
+  "ve_valence": 0,
+  "sdindex_computation": {
+    "raw_sum": 36,
+    "max_possible": 50,
+    "sdindex_score": 7.2,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "natural_diffused",
+    "Vr_source": "existential_permission",
+    "Vg_subtype": "agricultural_rhythmic",
+    "Ve_trigger": "self_time_projection"
+  },
+  "free_keywords": [
+    "diffused_clarity",
+    "axis_pull",
+    "ephemeral_density"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "空間具備強烈日本傳統皇室地域性格 植物年歲都相當大 顯然有非常大努力的人工維護 四季各有不同景觀 春櫻呈現系統性美學  ",
+    "Vl": "自然漫射 櫻花及桃花林呈現過濾後的柔和光鮮 更添粉嫩感",
+    "Vr": "無距離共感 與現場的植物與空間達到和諧 散步其中感覺非常舒服",
+    "Vg": "現場的空間感以及現場秩序 來自土地使用頻率  春天的櫻花與桃花  夏天的新綠 秋天的銀杏",
+    "Ve": "空間結構導致時間感知有延展 尤其春櫻有時間性 會更在乎保握當下 "
+  },
+  "emotion_trajectory": {
+    "entry_state": "沒有太多期待只是想說去走走 ",
+    "turning_point": "查網路說 京都御苑的垂枝櫻 滿開 感覺欣喜",
+    "exit_state": "離開時感到開心 因為現場人不多 花比預期的美",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "自然環境與植物的季節交替 所產生的共感很強烈 尤其在一個植物受到精心照顧的環境 季節交替所產生的韻律感 使人與環境達到一種和諧"
+  },
+  "ideal_condition": "櫻花祭一大清早",
+  "research_finding": "植物所帶來的視覺(非觸覺)享受似乎具有強大包容感 身體容易融入環境之中並且享受",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-22T11:17:18.350Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
