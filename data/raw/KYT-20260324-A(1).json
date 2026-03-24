@@ -1,0 +1,88 @@
+{
+  "record_id": "KYT-20260324-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-24T07:58:45.942Z",
+  "site": {
+    "name_zh": "大覺寺",
+    "name_local": "だいかくじ",
+    "name_en": "Daikakuji",
+    "city": "Kyoto",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "zen_temple_garden"
+  },
+  "observation": {
+    "date": "2026-03-24",
+    "time_of_day": "midday",
+    "season": "early_spring",
+    "weather": "晴",
+    "crowd_density": "very_low",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": false,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 8.5,
+    "Vl": 8.5,
+    "Vr": 8.5,
+    "Vg": 8.5,
+    "Ve": 9
+  },
+  "ve_valence": 0.5,
+  "sdindex_computation": {
+    "raw_sum": 43,
+    "max_possible": 50,
+    "sdindex_score": 8.6,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "high",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "intangible_practice",
+    "Vl_source": "natural_diffused",
+    "Vr_source": "existential_permission",
+    "Vg_subtype": "geometric_strict",
+    "Ve_trigger": "active_information_retrieval"
+  },
+  "free_keywords": [
+    "axis_pull",
+    "off_season_clarity",
+    "patina_gradient"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "現場有正在進行的祭祀儀式 建築內裝的細節符合傳統王室邏輯 庭院也是屬於王室等級的規格",
+    "Vl": "光線具有深度 自然光線可以操控室內遊客的情緒",
+    "Vr": "有溫潤地席可以坐著觀看中聽 有包容感 有存在感",
+    "Vg": "層層疊疊的屋簷具有秩序以及幾何設計感  各個堂室之間的迴廊亦具有透視感 整體的空間視覺具有嚴謹的幾何設計感",
+    "Ve": "大覺寺庭院的大澤池散步林道  日本底刑庭池結構 散步其中 不知不覺想億多停留多一點時間不想離開"
+  },
+  "emotion_trajectory": {
+    "entry_state": "首次拜訪零期待",
+    "turning_point": "原本今日計畫是攀登愛宕山以及拜訪愛宕神社 但是因為無停車位而作罷 遂前往尚未遊歷過的大覺寺 入場之前看門口告示得知是舊雌峨御所 顯然也是皇宮貴族的舊居住地 心想可能跟桂離宮一樣景色",
+    "exit_state": "離場時感到意猶未盡 跟老公約定好 下周再拜訪一次 屆時櫻花盛開一定更美 只是人潮更多是挑戰",
+    "trajectory_type": "surprise_delight",
+    "key_insight": "大器的王公貴族 設計的庭院就是氣度恢弘"
+  },
+  "ideal_condition": "藍天白雲之日",
+  "research_finding": "同樣是皇室居所 可以跟桂離宮 修學院 京都御所 做更深入的比較 今日一遊 始發現跟桂離宮的美 完全不一樣 ",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-24T07:58:45.942Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
