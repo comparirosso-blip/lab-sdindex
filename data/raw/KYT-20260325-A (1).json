@@ -1,0 +1,88 @@
+{
+  "record_id": "KYT-20260325-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-25T06:05:44.349Z",
+  "site": {
+    "name_zh": "上賀茂神社",
+    "name_local": "賀茂別雷神社",
+    "name_en": "Kamo Wakeikazuchi Jinja",
+    "city": "kyoto ",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-03-25",
+    "time_of_day": "afternoon",
+    "season": "early_spring",
+    "weather": "雨",
+    "crowd_density": "very_low",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 5,
+    "Vl": 5,
+    "Vr": 4,
+    "Vg": 4,
+    "Ve": 3
+  },
+  "ve_valence": -0.5,
+  "sdindex_computation": {
+    "raw_sum": 21,
+    "max_possible": 50,
+    "sdindex_score": 4.2,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "mixed",
+    "Vr_source": "social_protocol",
+    "Vg_subtype": "enclosure_shallow",
+    "Ve_trigger": "external_narrative_human"
+  },
+  "free_keywords": [
+    "scale_dissonance",
+    "ephemeral_density",
+    "patina_gradient"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "傳統京都寺廟時間的歷史感透過建築物屋簷以及木質地板以及庭園造景有呈現出來 但無法從中感受強烈時間累積感",
+    "Vl": "雨天沒有光線指引 只能寺廟設計的指引行走 屬於方向性指引",
+    "Vr": "有一個小小的建築物屋簷可以用手觸摸 是具有歷史感的質感 整體而言 該神社的建築物屋簷很具歷史感 但是其他空間設計 比如造橋流水等 過於現代化而抵銷歷史與文化感 略顯商業氣質",
+    "Vg": "參拜時視線被拉向無法直接透視觀看的本殿 本殿位於簾幕以及蜿蜒的通道之後  至於庭院怎是屬於廣大沒有設計感的空間 種植幾株具有年歲之櫻花 ",
+    "Ve": "京都參拜的日常 沒有特別想要長時間停留的意念 "
+  },
+  "emotion_trajectory": {
+    "entry_state": "零期待 但知道這裡是個知名的京都神社之一",
+    "turning_point": "none",
+    "exit_state": "平靜 無太多感知",
+    "trajectory_type": "expectation_collapse_reframe",
+    "key_insight": "跟我之前搜尋資料所查到的 跟今天實地參訪 感受完全不同 "
+  },
+  "ideal_condition": "天氣為藍天白雲之櫻花祭典日",
+  "research_finding": "網路搜尋的結果於實際觀察的落差頗大 未來藍天白雲櫻花祭典之際要再以今天這一筆當作基準點再採樣一次 另外 site_type應該新增shinto_shrine",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-25T06:05:44.349Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
