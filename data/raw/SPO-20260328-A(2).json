@@ -1,0 +1,87 @@
+{
+  "record_id": "SPO-20260328-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-29T08:03:27.540Z",
+  "site": {
+    "name_zh": "札幌大和巨蛋",
+    "name_local": "大和ハウス プレミストドーム",
+    "name_en": "Daiwa House Premist Dome",
+    "city": "Sapporo",
+    "region": "SPO",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-03-28",
+    "time_of_day": "night",
+    "season": "early_spring",
+    "weather": "晴",
+    "crowd_density": "crowded",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 9,
+    "Vl": 10,
+    "Vr": 10,
+    "Vg": 9,
+    "Ve": 9.5
+  },
+  "ve_valence": 1,
+  "sdindex_computation": {
+    "raw_sum": 47.5,
+    "max_possible": 50,
+    "sdindex_score": 9.5,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "exceptional",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "intangible_practice",
+    "Vl_source": "artificial_warm",
+    "Vr_source": "existential_permission",
+    "Vg_subtype": "enclosure_deep",
+    "Ve_trigger": "intrinsic_spatial"
+  },
+  "free_keywords": [
+    "spatial_greatness",
+    "sonic_rhythmic"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "高密度但是並非傳統日本文化 而是係屬無形文化的一種類型  雖是現代建築但是呈現近似日本\"祭\"的傳統文化  就像日本其他的祭典 人們齊聚一起 展現高度和諧與高密度的 一致性 日本祭典不同於嘉年華會 是一種特殊的日本文化  現場溫度不低 演場會主角笑稱 北海道怎麼這麼熱 現場溫度高 提升現場觀眾的熱情 觀眾動作的一致性情似一種催眠狀態",
+    "Vl": "此次在這個場域的活動是參與Vaundy的演唱會\"Silence\" 一個沒有跳舞沒有換衣服 的演唱會 除了歌手的個人魅力之外 整場的燈光效果讓參與者猶如參加一場LED燈光秀  驚嘆表演者的能力之外 對於燈光設計團隊 對於掌握現場空間燈光與光線折射應用的專業度 感到敬佩",
+    "Vr": "演場會甫開始全場五萬五千人自動自發起立  手勢一致的舞動 退場時的離場協議 均呈現一種極高規律的自制能力 即便一個密閉空間有將近六萬人 但整個空間依舊抱持極度的秩序感",
+    "Vg": "金屬的 巨型的 深層的 人造蒼穹 雖然不識傳統日式建築屋簷 但是巨蛋的建築結構 依舊呈現日式的建築特有的庇護感 而這個庇護感是利用巨大的金屬與物件來表現 看到宏偉的日式寺廟會產生敬畏 而札幌巨蛋巨大的金屬亦有讓人感到敬畏感到被佑護的情緒",
+    "Ve": "五萬五千人 同一空間同一時間同一動作同一情緒 跟著強烈音響 心跳跟著接奏 身體律動被全體帶著走 呼吸與笑聲也與現場氛圍融合 這種強大的共振感 讓人不知道時間的流逝 "
+  },
+  "emotion_trajectory": {
+    "entry_state": "第一次進入日本的巨蛋 這次是聽Vaundy的演唱會 對於巨蛋的理解在進場前僅止於了解它是一個巨型球狀建築物 內部可以進行球賽與演唱會",
+    "turning_point": "因為密閉 因為巨型 因為人很多 現場的人事物各層面的高度秩序感 讓人印係深刻 演唱會一開始全場五萬多人一致的 手部與身體擺動方式 更為驚豔 因為電腦選位 我們坐在整個場地最後一排 因此整個巨蛋內部界在我的視線範圍內 演場會的聲光效果本就高度專業無庸置疑 但是日本歌迷的高度專注與動作一致性 是我在其他演唱會從未見識過",
+    "exit_state": "一致性帶來的共振感 前所未有過 最終曲結束後沒有安可曲 一切的高潮與情緒摁間降溫 又是一致的安靜 開始慢慢有秩序的離場 花了四十分鐘才輪到我們最後一排的人可以離場 但是沒有焦躁沒有厭惡感 這個巨大的空間承載了五萬多人愉悅的情緒 ",
+    "trajectory_type": "surprise_delight",
+    "key_insight": "日本人在一個現代建築空間內進行日本的祭典"
+  },
+  "ideal_condition": "演唱會",
+  "research_finding": "一個現代空間但是極具文化函數 一個人超多的環境但是呈現高度和諧共鳴 一個充滿人工光源的地方但是讓人感身心愉悅 一個巨大的幾何空間內但是讓人感到舒適 未來可與其他日本巨蛋做關係採樣 也可在同一個巨蛋進行球賽時做關係採樣 ",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-29T08:03:27.540Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
