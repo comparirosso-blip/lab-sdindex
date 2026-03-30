@@ -1,0 +1,86 @@
+{
+  "record_id": "SPO-20260327-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-30T03:16:31.475Z",
+  "site": {
+    "name_zh": "Moliere ",
+    "name_local": "Moliere",
+    "name_en": "Moliere",
+    "city": "Sapporo",
+    "region": "SPO",
+    "country": "JP",
+    "site_type": "commercial_district"
+  },
+  "observation": {
+    "date": "2026-03-27",
+    "time_of_day": "midday",
+    "season": "early_spring",
+    "weather": "晴",
+    "crowd_density": "moderate",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 2,
+    "Vl": 7.5,
+    "Vr": 8.5,
+    "Vg": 6.5,
+    "Ve": 8
+  },
+  "ve_valence": 0.5,
+  "sdindex_computation": {
+    "raw_sum": 32.5,
+    "max_possible": 50,
+    "sdindex_score": 6.5,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "high",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "corporate_constructed",
+    "Vl_source": "mixed",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "layered_threshold",
+    "Ve_trigger": "self_time_projection"
+  },
+  "free_keywords": [
+    "axis_pull"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": "TPE-20260311-A"
+  },
+  "field_notes": {
+    "Vt": "完全現代作為餐廳的功能空間 相較於過往拜訪過的米其林餐廳 餐廳外觀是一棟中古大樓 一樓 雖有小小花園 但是無法跟米其林餐廳做直接的連結",
+    "Vl": "餐廳一側為可打開的落地窗 窗外有植栽 札幌室外溫度上升之際 興許會打開所有的門 植栽可備室內視覺直視 而透過植栽可以隱約看到円山公園的大樹 光線的質感在靠窗的座位是優質",
+    "Vr": "作為餐廳客人對於空間的擺設 花藝的展現 有點訝異 因為該餐廳為三星米其林 原以為所有的餐具以及餐桌擺設甚至花藝展現都會是極度高端的 但這家老牌米其林走的的樸實無華風格 連餐盤都清一色使用純白瓷盤 沒有其他贅飾 不但沒有降低用餐氛圍 反而更專心於享受食物的美以及廚師想要傳遞的意念  兒空間也是一樣 不高的天花板讓聲音傳導比較直接 可以聽到侍者在隔壁桌解釋菜色的聲音 以及主廚在廚房喊出上菜桌次的聲音 ",
+    "Vg": "邊界清晰 因為餐廳室內空間不大 由幾個大片窗戶與落地窗包圍 界線清楚桌椅擺放有秩序感 不會顯得雜亂擁擠 但是 因為空間不大 天花板不高 客人聲音、其他桌侍者介紹菜的聲音會聽到 也偶爾聽到主廚在廚房喊桌次號碼出菜的聲音",
+    "Ve": "侍者能力很專業 能與客人互動良好 作為米其林三星餐廳 酒食水準極高  時間界線不明顯 吃了兩個半小時 亦不會覺得過了很久"
+  },
+  "emotion_trajectory": {
+    "entry_state": "對於三星米其林餐廳的酒食水準有期待",
+    "turning_point": "樸實無華的空間與擺盤 有違我對於三星米其林餐廳的認知",
+    "exit_state": "深覺主廚利用北海道當地食材 不採取譁眾取寵的模式 非常認同 ",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "我在這裡拍的照片顯得平淡無奇 但是空間與人員的協和 以及這種調和的美 無法透過照片呈現 未來可能有更多場域跟這裡一樣 照片與真實感知是不一致的"
+  },
+  "ideal_condition": "非冬季天氣晴朗 落地窗可以打開之際",
+  "research_finding": "餐廳的採樣也可放到這套模組 待新增subtype: fine_dining",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-30T03:16:31.475Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
