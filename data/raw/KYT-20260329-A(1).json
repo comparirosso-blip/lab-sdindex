@@ -1,0 +1,88 @@
+{
+  "record_id": "KYT-20260329-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-30T02:40:34.680Z",
+  "site": {
+    "name_zh": "高瀨川沿岸",
+    "name_local": "たかせがわ",
+    "name_en": "Takase River",
+    "city": "Kyoto",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "urban_public_space"
+  },
+  "observation": {
+    "date": "2026-03-29",
+    "time_of_day": "night",
+    "season": "early_spring",
+    "weather": "偶爾細雨",
+    "crowd_density": "high",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 8.5,
+    "Vl": 8.5,
+    "Vr": 9,
+    "Vg": 9,
+    "Ve": 9
+  },
+  "ve_valence": 1,
+  "sdindex_computation": {
+    "raw_sum": 44,
+    "max_possible": 50,
+    "sdindex_score": 8.8,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "artificial_warm",
+    "Vr_source": "social_protocol",
+    "Vg_subtype": "geometric_strict",
+    "Ve_trigger": "intrinsic_spatial"
+  },
+  "free_keywords": [
+    "axis_pull",
+    "ephemeral_density",
+    "curated_wildness"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": "KYT-20260325-A",
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "高瀨川自古便是京都重要的櫻之名所 沿岸的橋墩雖已經過人工修飾 但仍顯歷史感 樹齡高的結果就是櫻花樹相當高大 樹幹相當粗壯  花朵枝幹繁複交錯  不是一種現代櫻花園的時尚感",
+    "Vl": "雖是人工精緻光源 但是在川邊的商店 櫻花的花影 川水的倒影 周邊賞櫻人潮的喜樂感 交織在一起的結果 讓這個人工光源呈現一種慵懶雅致的氛圍",
+    "Vr": "靠近京都三条四条的高瀨川 觀光遊客眾多 但遊客站在運河沿途的橋邊 橋墩的材質與現場的歡愉氛圍 達到一種和諧 不至於過於躁亂 遊客高度克制的結果是大家都被包容在觀賞夜櫻的浪爛氛圍之中 ",
+    "Vg": "沿岸的商家在玻璃建築 露天餐椅擺設 外牆仿古設計 與夜晚櫻花甚至水中與牆面剪影 讓高瀨川三条一直到五条沿岸形成有秩序的空間感",
+    "Ve": "感官被現場氛圍感動 想多停留久一點 因為現場沒有太多可以做的地方 只能一直走然後離開"
+  },
+  "emotion_trajectory": {
+    "entry_state": "在京都市役所附近吃完晚餐 沿著高瀨川走路回家 因為晚餐的質量很高 所以心情很好",
+    "turning_point": "2026年京都應比前兩三年早開三日左右 我們原本不相信 但走到高瀨川三条 發現櫻花真的已經開了八成",
+    "exit_state": "沿著岸邊一邊拍照 一邊讚嘆 與一旁不認識遊客對於這般美景 一起享受 這是京都櫻花季的享受",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "到底是人工光源讓櫻花更美還是夜晚的櫻花本身就有獨特的魅力 尚且未知"
+  },
+  "ideal_condition": "櫻花季夜晚夜深人靜之際 ",
+  "research_finding": "夜櫻的感官享受 可以忽視人車都顯擁擠的不舒服情況  是因為夜櫻這個物候事件的韌性高 還是空間本身的韌性高?或許需亦邀個新的SUBTYPE的場域: seasonal _cultural_practice ",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-30T02:40:34.680Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
