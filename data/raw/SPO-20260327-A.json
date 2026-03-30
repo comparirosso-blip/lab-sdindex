@@ -9,7 +9,7 @@
     "city": "Sapporo",
     "region": "SPO",
     "country": "JP",
-    "site_type": "commercial_district"
+    "site_type": "none"
   },
   "observation": {
     "date": "2026-03-27",
@@ -74,7 +74,7 @@
     "key_insight": "我在這裡拍的照片顯得平淡無奇 但是空間與人員的協和 以及這種調和的美 無法透過照片呈現 未來可能有更多場域跟這裡一樣 照片與真實感知是不一致的"
   },
   "ideal_condition": "非冬季天氣晴朗 落地窗可以打開之際",
-  "research_finding": "餐廳的採樣也可放到這套模組 待新增subtype: fine_dining",
+  "research_finding": "餐廳的採樣也可放到這套模組 待新增sitetype: fine_dining",
   "asset_class": "Gold_Sample",
   "usable_for_llm_training": true,
   "ip_status": {
