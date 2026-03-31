@@ -1,0 +1,87 @@
+{
+  "record_id": "KYT-20260330-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-31T08:32:08.416Z",
+  "site": {
+    "name_zh": "醍醐寺靈寶館",
+    "name_local": "醍醐寺霊宝館",
+    "name_en": "Daigoji Temple",
+    "city": "Kyoto ",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-03-30",
+    "time_of_day": "night",
+    "season": "early_spring",
+    "weather": "陰",
+    "crowd_density": "moderate",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 9.5,
+    "Vl": 5,
+    "Vr": 4,
+    "Vg": 3,
+    "Ve": 2
+  },
+  "ve_valence": -0.5,
+  "sdindex_computation": {
+    "raw_sum": 23.5,
+    "max_possible": 50,
+    "sdindex_score": 4.7,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "mixed",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "enclosure_shallow",
+    "Ve_trigger": "none"
+  },
+  "free_keywords": [
+    "anticipatory_decay",
+    "patina_gradient"
+  ],
+  "relations": {
+    "temporal_variant_of": "KYT-20260330-B",
+    "counterpoint_of": "KYT-20260324-A",
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "醍醐寺靈寶館是個存放並且展示日本彫刻、絵画、工芸、古文書的場所 如果以日本文化視角觀之 這裡確實文化密度很高 因為櫻花祭 所以寺方特別開放三個晚上可以入內參觀這些古物  三月三十日是其中一天 館內擺設多具佛教的佛像 看似佛教密宗的佛像 以及多幅卷軸畫像 時代橫跨鎌倉時代 安平時代 江戶時代",
+    "Vl": "因為是夜櫻觀賞 庭院的燈光打在櫻花樹上 但是無法稱上有藝術感 只是單純打亮 所以無法產生共鳴 展示廳的人工光源更是乏善可陳 只能說是具有功能性的燈光",
+    "Vr": "展示廳的擺設毫無設計感 僅僅是沿著四方型空間的邊緣將物品擺置上去  沒有溫度 無法產生太多共鳴 加上我已經習慣看台北故宮博物院的展示 這些日本古文化無法讓我產生品質感 庭院的櫻花很美 但是燈光效果不佳 無法讓夜櫻的特色展示出來",
+    "Vg": "庭院沒有太多視覺引導 靈寶館室內亦無幾何秩序 ",
+    "Ve": "票券表示六點半開放進場 但是刷完qr code居然是要大家在一個地方站著等到七點然後才一次讓遊客進入 這種設計根本無理且無禮 進入之後的展示與夜櫻效果 無法與等待時間產生match 很快就想離開"
+  },
+  "emotion_trajectory": {
+    "entry_state": "有期待 因為一年的春天只開放三天可以買票入場 ",
+    "turning_point": "入場後被要求在一個狹小空間站立半小時 老公的足底筋膜炎讓他無法久站 但是又無法離開也不知為何要站",
+    "exit_state": "無法認同這場活動的官方態度 過於輕率",
+    "trajectory_type": "expectation_collapse_reframe",
+    "key_insight": "靈寶館是醍醐寺賞櫻絕對不能錯過的核心區域 但非適合觀賞夜櫻的場所"
+  },
+  "ideal_condition": "白天",
+  "research_finding": "同時具備文化遺產與春櫻的場合，SDIndex 不見得高分。\nVt 高但其他向量被管理失當而全部被拉低。\nsite_type 待新增：buddhist_temple。\nVr_source 待新增：design_absence（設計缺失型）。\nVe 的時間感來自被動等待加上管理失當，現有 Ve_trigger 詞表無法精確描述。",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-31T08:32:08.416Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
