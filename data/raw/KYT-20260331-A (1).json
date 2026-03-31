@@ -1,0 +1,87 @@
+{
+  "record_id": "KYT-20260331-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-31T12:11:50.700Z",
+  "site": {
+    "name_zh": "京都府廳舊本館",
+    "name_local": "京都府庁旧本館",
+    "name_en": "Former main building of the Kyoto perfectural office",
+    "city": "Kyoto ",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "heritage_adaptive_reuse"
+  },
+  "observation": {
+    "date": "2026-03-31",
+    "time_of_day": "afternoon",
+    "season": "early_spring",
+    "weather": "大雨",
+    "crowd_density": "low",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 8,
+    "Vl": 6,
+    "Vr": 8.5,
+    "Vg": 8.5,
+    "Ve": 7
+  },
+  "ve_valence": 0,
+  "sdindex_computation": {
+    "raw_sum": 38,
+    "max_possible": 50,
+    "sdindex_score": 7.6,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "mixed",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "layered_threshold",
+    "Ve_trigger": "active_information_retrieval"
+  },
+  "free_keywords": [
+    "diffused_clarity",
+    "ephemeral_density"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": "SPO-20260327-A"
+  },
+  "field_notes": {
+    "Vt": "是日本現存最古老的現役官公廳舍建築也是國家重要文化財 可以從現場牆壁的斑駁以及視線所及 輕易感知該建築歷史的久遠 但仍是屬於現代的歷史",
+    "Vl": "今天是大雨的時候造訪 庭院的櫻花沒有光線反射  室內格窗看出去的櫻花是淡淡霧霧的粉紅色  也未能形成室外光線透過格窗進入室內的翦影",
+    "Vr": "斑駁的牆壁不處理 顯然是刻意保留歷史感 樓梯 梯間 室內空間的門 都盡量保留原始的歷史感 跟這個地名相呼應 不會因為東西破舊而感到嫌惡 ",
+    "Vg": "庭院是在建築物的中間 四面都可觀賞到中庭的植物 大中小的格窗的設計有秩序感",
+    "Ve": "空間小 下雨天 繞一圈 拍完照 就想離開 加上府廳特別讓開車前往的民眾有一小時免費停車賞櫻的福利 因此最多只會停留一小時而已"
+  },
+  "emotion_trajectory": {
+    "entry_state": "在臉書看到訊息 所以趁今天有時間即便下大雨也決定前往",
+    "turning_point": "none",
+    "exit_state": "離場覺得平靜 沒有太多感動",
+    "trajectory_type": "flat_positive",
+    "key_insight": "市政府特意經營的賞櫻場地 但名過其實"
+  },
+  "ideal_condition": "櫻花季 楓葉季",
+  "research_finding": "網路資訊對於此地的評價甚高 被視為京都賞櫻秘境 但似乎需要再多一些觀察 未來可與上賀茂神社等其他網路知名景點作獨立討論",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-31T12:11:50.700Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
