@@ -1,0 +1,88 @@
+{
+  "record_id": "KYT-20260330-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-03-31T09:02:23.555Z",
+  "site": {
+    "name_zh": "醍醐寺",
+    "name_local": "醍醐寺",
+    "name_en": "Daigoji Temple",
+    "city": "Kyoto",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-03-30",
+    "time_of_day": "night",
+    "season": "early_spring",
+    "weather": "陰",
+    "crowd_density": "crowded",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 9,
+    "Vl": 9,
+    "Vr": 6,
+    "Vg": 4,
+    "Ve": 6.5
+  },
+  "ve_valence": 0,
+  "sdindex_computation": {
+    "raw_sum": 34.5,
+    "max_possible": 50,
+    "sdindex_score": 6.9,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "low",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "artificial_warm",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "open_framed",
+    "Ve_trigger": "none"
+  },
+  "free_keywords": [
+    "threshold_multiplied",
+    "canopy_filter",
+    "crowd_rhythm_mismatch"
+  ],
+  "relations": {
+    "temporal_variant_of": "KYT-20260330-A",
+    "counterpoint_of": null,
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "醍醐寺是京都非常經典的賞櫻勝地 如果以賞櫻歷史文化觀之 醍醐寺是這項文化密度極高的場所",
+    "Vl": "這場夜櫻活動是醍醐寺與NAKED, INC合作 在國寶五重塔及金堂周邊營造夢幻光影秀 專業的燈光效果打在醍醐寺原本就相當具有吸引的物件 包括五重塔, 小橋池水以及各個堂室上 雖是人工光源 但是設計得當 更添賞櫻的視覺感受  尤其燈光顏色鎖定紫色與朱粉紅 現場氛圍更顯溫暖",
+    "Vr": "醍醐寺園區道路凹凸不平 夜晚走路相當不舒服 有推嬰兒車的遊客更顯辛苦 被燈光投射的櫻花與建築物距離不會太遠 觀賞品質屬佳 拍照效果亦極佳",
+    "Vg": "鵜鶘是視覺軸線設計不錯 具有延伸感 五重塔以及其他堂室 再加上池塘與紅色橋梁的組合 這些幾何結構在燈光下 在櫻花襯托下  有一種微妙的秩序感 ",
+    "Ve": "人潮眾多 景色很美很想多待 但是理智不允許  拍完一輪照片後即想離開"
+  },
+  "emotion_trajectory": {
+    "entry_state": "剛結束寶靈館的夜櫻活動 對於同樣是醍醐寺的另一場夜櫻活動有期待",
+    "turning_point": "地面凹凹凸凸 在夜晚走起來相當不舒服 覺得納悶",
+    "exit_state": "離開感到平靜 人多並未讓我太退卻 但無法對美景產生太多共鳴",
+    "trajectory_type": "expectation_collapse_reframe",
+    "key_insight": "經典京都夜櫻 雖美麗 但無法給予太多感知的強震撼"
+  },
+  "ideal_condition": "非櫻花季 非楓葉季 或許新綠 ",
+  "research_finding": "site_type 待新增 buddhist_temple 不知道是否是感知已達 邊際效益遞減 醍醐寺夜櫻在專業團隊技術挹注下 真的很美 但是我已經無法感動 身旁同遊的老公卻沉醉不已 形成對比",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-03-31T09:02:23.555Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
