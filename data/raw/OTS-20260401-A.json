@@ -1,0 +1,88 @@
+{
+  "record_id": "OTS-20260401-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-04-02T07:11:30.771Z",
+  "site": {
+    "name_zh": "天台寺門宗 總本山三井寺",
+    "name_local": "長等山園城寺おんじょうじ",
+    "name_en": "Miidera",
+    "city": "Otsu",
+    "region": "OTS",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-04-01",
+    "time_of_day": "afternoon",
+    "season": "early_spring",
+    "weather": "雨",
+    "crowd_density": "moderate",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": true
+    }
+  },
+  "vs_vector": {
+    "Vt": 7.5,
+    "Vl": 8,
+    "Vr": 8,
+    "Vg": 8.5,
+    "Ve": 8.5
+  },
+  "ve_valence": 0.5,
+  "sdindex_computation": {
+    "raw_sum": 40.5,
+    "max_possible": 50,
+    "sdindex_score": 8.1,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "natural_diffused",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "enclosure_deep",
+    "Ve_trigger": "intrinsic_spatial"
+  },
+  "free_keywords": [
+    "diffused_clarity",
+    "ephemeral_density",
+    "patina_gradient"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "整個場域歷史感保留了五成 五成的建築物已經經過現代化修整  但是功能與動線依舊保持宗教密度高 ",
+    "Vl": "絕對自然光操控的場域 即便下雨天 仍可透過櫻花樹 樓梯 寺廟門檻 創造陰影 ",
+    "Vr": "寺廟某些屋簷上已長滿青苔 可以感受到歲月的痕跡 寺廟木門與寺廟內木造擺設 亦有歲月痕跡",
+    "Vg": "三井寺全部範圍占地35萬坪 寬廣的境內有多個寺廟建築  呈現和諧的秩序 沒有突出的建築構造 但是開放空間在櫻花以及其他植物諸如楓樹的襯托下  視線具有強制力",
+    "Ve": "佔地廣大 緩慢步行 邊走遍拍櫻花 下雨天遊客不多 雨聲與空間結構導致時間感知延展 在附設茶室多停留了一小時也不覺得很久"
+  },
+  "emotion_trajectory": {
+    "entry_state": "因為下雨天 所以預期遊客不會太多 ",
+    "turning_point": "none",
+    "exit_state": "遊客不多 櫻花開的很美 空間幽靜 很舒服 不會因為下雨而破壞掉賞櫻的美好心情",
+    "trajectory_type": "existential_release",
+    "key_insight": "遠離京都暴走遊客的一塊Gem"
+  },
+  "ideal_condition": "下雨天的櫻花季節和楓葉季節",
+  "research_finding": "雖然不是在京都 位於滋賀縣大津市的三井市 以櫻花盛名 三井寺下方有一條琵琶湖疏水道 也以櫻花盛名 但是與京都的擁擠人潮相比 雖不算秘境 但是可以更悠閒地觀賞 文化密度雖不比京都高 但是可以更安靜的感受文化遺產",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-04-02T07:11:30.771Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
