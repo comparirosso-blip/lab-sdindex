@@ -1,0 +1,87 @@
+{
+  "record_id": "KYT-20260402-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-04-02T07:44:32.123Z",
+  "site": {
+    "name_zh": "知恩院",
+    "name_local": "知恩院",
+    "name_en": "Chion-in",
+    "city": "Kyoto",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-04-02",
+    "time_of_day": "morning",
+    "season": "early_spring",
+    "weather": "晴",
+    "crowd_density": "high",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 7,
+    "Vl": 6,
+    "Vr": 6,
+    "Vg": 8.5,
+    "Ve": 5
+  },
+  "ve_valence": 0,
+  "sdindex_computation": {
+    "raw_sum": 32.5,
+    "max_possible": 50,
+    "sdindex_score": 6.5,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "natural_diffused",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "layered_threshold",
+    "Ve_trigger": "none"
+  },
+  "free_keywords": [
+    "threshold_multiplied",
+    "patina_gradient"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": "OTS-20260325-A, KYT-20260324-A",
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "具有800年以上歷史 仍舊保持宗教場地氛圍 還會舉辦講經活動 但是有比較現代感強烈的 ",
+    "Vl": "知恩院占地非常廣大 光線層次感比較弱 ",
+    "Vr": "御影堂內部與門材質質感 讓人覺得\"貴氣\"\"富有\" 所以質地是清晰的 但無法與宗教產生太強烈的共鳴",
+    "Vg": "從三門進入之後要爬上一段階梯 這個階梯具有一種強烈的視覺秩序與引導力量 但是爬到終點之後視線就是平的",
+    "Ve": "很知名的賞櫻景點 一早前往遊客不多 櫻花很美 但是不會想要久待也沒有厭惡感"
+  },
+  "emotion_trajectory": {
+    "entry_state": "低期待 怕賞櫻人多很吵",
+    "turning_point": "占地大 人潮沒有想像擁擠",
+    "exit_state": "平靜 但相對無感",
+    "trajectory_type": "flat_positive",
+    "key_insight": "會覺得這是一個相當貴氣的宗教場域"
+  },
+  "ideal_condition": "工作日平常",
+  "research_finding": "八阪神社與知恩院形成一個非常大的賞櫻空間 但是知恩院的氛圍相對沉穩 透出一種貴族的質感 三門與御影堂的建造建材也有高級感 不知道是否是這種高級感讓人不想久留? 在當下我想起有人還是有ai跟我提過: 京都的房產都掌握在京都寺廟手中! site_type: zen_temple_garden — 知恩院是淨土宗總本山 待新增 buddhist_temple",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-04-02T07:44:32.123Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
