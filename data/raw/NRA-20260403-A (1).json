@@ -1,0 +1,87 @@
+{
+  "record_id": "NRA-20260403-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-04-05T06:40:05.159Z",
+  "site": {
+    "name_zh": "旅館 竹林院群芳園",
+    "name_local": "竹林院群芳園",
+    "name_en": "Chikurinin",
+    "city": "Yoshino",
+    "region": "NRA",
+    "country": "JP",
+    "site_type": "immersive_overnight"
+  },
+  "observation": {
+    "date": "2026-04-03",
+    "time_of_day": "full_day",
+    "season": "early_spring",
+    "weather": "晴轉陰",
+    "crowd_density": "moderate",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 6.5,
+    "Vl": 6.5,
+    "Vr": 3,
+    "Vg": 4,
+    "Ve": 4
+  },
+  "ve_valence": -0.5,
+  "sdindex_computation": {
+    "raw_sum": 24,
+    "max_possible": 50,
+    "sdindex_score": 4.8,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "low",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "mixed",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "enclosure_shallow",
+    "Ve_trigger": "self_time_projection"
+  },
+  "free_keywords": [
+    "canopy_filter",
+    "patina_gradient"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": null,
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "一千三百年的年歲 建築物與庭園確實可以顯現出歷史感 但是除了年歲久遠的感覺之外 沒有太多文化效應 也就是文化或者美學的挹注 庭院的植栽確實有歷史痕跡與美感 但是旅館功能為主角之後 動線已經現代化",
+    "Vl": "旅館的庭園自然光源充沛 質地清晰有溫度 旅館內部部分區域的格窗在日光折射處可形成強烈幾何感 但無陽光之處 人工光源顯得貧乏無趣",
+    "Vr": "年代久遠的旅館設施 建材偏向塑膠貼皮廉價建材  觸感沒有歷史的溫潤感  讓人產生強烈的不對襯感 如果沒有吉野山的櫻花襯托 會不知道為何要選擇此處作為留宿點",
+    "Vg": "旅館庭園經過精緻設計 視覺具有引導力與穿透感 旅館內部呈現封閉狀態 沒有秩序感",
+    "Ve": "歷史故事的敘事有介入 可以意識到過往的歷史 唯做為旅館介面 無法讓旅客感知更細微 早上九點即完成退房 啟程回京都"
+  },
+  "emotion_trajectory": {
+    "entry_state": "對於吉野山的櫻花之旅有著極高的期待 也對於能夠及時訂到山上中千本的住宿感到興奮 一路開車上山看到遊客如織 覺得自己非常幸運 雖然金錢代價不斐 但在前往旅館的路途上 內心覺得值得",
+    "turning_point": "進到旅館 被庭園的櫻花與倒影震攝 覺得光線與動線的設計 以及整個\"古拙\"感覺的美麗 但是在進入旅館房間以及開始用餐之後 對於旅館的服務提供感到驚訝與失望",
+    "exit_state": "櫻花的美無法補救旅館所帶來的感官傷害 一早六店前往上千本拍完照後 匆匆食用完早餐即退房一路直奔京都家",
+    "trajectory_type": "expectation_collapse_reframe",
+    "key_insight": "日本老舊旅館文化在沒有資金挹注的情況下 人力物力短缺是個殘酷的殺豬刀 再美的外在環境都無法拯救"
+  },
+  "ideal_condition": "淡季 房價便宜之際",
+  "research_finding": "網路搜尋都是一致的高評價 但我對其評價經過一個轉折之後給予非常低的評論 我的感知無法與網路同步 本記錄為重新編碼版本，取代初版記錄（YOS-20260403-A）。初版僅捕捉庭園高峰感知時刻，本版記錄完整住宿體驗後的整體評估。",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-04-05T06:40:05.159Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
