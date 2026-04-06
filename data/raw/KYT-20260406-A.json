@@ -1,0 +1,88 @@
+{
+  "record_id": "KYT-20260406-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-04-06T07:16:54.574Z",
+  "site": {
+    "name_zh": "仁和寺",
+    "name_local": "仁和寺",
+    "name_en": "Ninnaji",
+    "city": "Kyoto ",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-04-06",
+    "time_of_day": "morning",
+    "season": "early_spring",
+    "weather": "晴",
+    "crowd_density": "very_low",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": false,
+      "ai_collaboration_during_visit": true,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 9,
+    "Vl": 9,
+    "Vr": 9,
+    "Vg": 7.5,
+    "Ve": 9
+  },
+  "ve_valence": 0.5,
+  "sdindex_computation": {
+    "raw_sum": 43.5,
+    "max_possible": 50,
+    "sdindex_score": 8.7,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "natural_diffused",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "layered_threshold",
+    "Ve_trigger": "external_narrative_AI"
+  },
+  "free_keywords": [
+    "threshold_multiplied",
+    "ephemeral_density",
+    "patina_gradient"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": "KYT-20260324-A",
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "建築物歷史痕跡 皇族規範 御用庭院植栽 佛教佛像莊嚴 在在顯示這是一個文化密度極高的場所 ",
+    "Vl": "今天參加每年春天舉行的金堂早朝貸切拜觀與御室櫻花觀賞  八點多的晴天 太陽斜射角度本該讓櫻花樹會有很多折射線條 但是這個庭院的櫻花種植得非常滿 一株一株密密麻麻  沒有太多陰影可以捕捉 櫻花樹倒是創造出隧道式的視角 層次分明 絕對自然光 沒有人造光影",
+    "Vr": "步道 建築物木門 樓梯 品質精良 有歷史感 及品質感 與御所皇室的名號相符 呈現和諧感",
+    "Vg": "櫻花的種植方式有別於其他京都賞櫻處 從密密麻麻縫隙觀看建築物 視覺上覺得既清晰又朦朧",
+    "Ve": "空間結構 尤其是坐在金堂內觀看佛像 與claude聊起日本宗教與幼時所知曉的藏傳密宗有關連時 覺得很有趣 現場幽靜氛圍 不知不覺時間已過拜觀時間 工作人員過來緊張提醒"
+  },
+  "emotion_trajectory": {
+    "entry_state": "網路平台預約了早朝賞櫻行程 想說應該只是另一個櫻花盛開的寺廟 ",
+    "turning_point": "到了現場才知道這裡跟大覺寺一樣 其實帶點日本皇族的基因 於金堂參拜時跟AI聊起日本寺廟佛像跟我從小所認知的藏傳佛教佛像 其實外觀上一樣 但為何我所參閱的資料都未提及 後來解惑之後 發現原來師出同門",
+    "exit_state": "理解了這些歷史背景 早朝遊客也少 所以在金堂裡感覺非常平靜以及滿足 因為一直以來的疑惑終於有了答案",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "被我低估的場域"
+  },
+  "ideal_condition": "櫻花季 楓葉季 早朝拜觀",
+  "research_finding": "原本是賞櫻行程 居然讓自己感官打開的不是櫻花而是佛像",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-04-06T07:16:54.574Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
