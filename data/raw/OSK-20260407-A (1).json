@@ -1,0 +1,87 @@
+{
+  "record_id": "OSK-20260407-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-04-08T11:56:53.692Z",
+  "site": {
+    "name_zh": "大阪京瓷巨蛋",
+    "name_local": "京セラドーム大阪",
+    "name_en": "Kyocera Dome Osaka",
+    "city": "Osaka",
+    "region": "OSK",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-04-07",
+    "time_of_day": "evening",
+    "season": "early_spring",
+    "weather": "陰",
+    "crowd_density": "moderate",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": false,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": true,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 1,
+    "Vl": 5,
+    "Vr": 5,
+    "Vg": 5,
+    "Ve": 7
+  },
+  "ve_valence": 0.5,
+  "sdindex_computation": {
+    "raw_sum": 23,
+    "max_possible": 50,
+    "sdindex_score": 4.6,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "medium",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "corporate_constructed",
+    "Vl_source": "artificial_neutral",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "enclosure_deep",
+    "Ve_trigger": "active_information_retrieval"
+  },
+  "free_keywords": [
+    "axis_pull",
+    "crowd_rhythm_mismatch"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": "SPO-20260328-A",
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "完全現代化複合式功能的巨大空間 缺乏任何文化參照 只有功能參數",
+    "Vl": "大量人工光 以及螢幕投射光線  功能性光線充足 邊界清晰",
+    "Vr": "看球賽坐的椅子觸感沒有太多品質 完全功能性使用 沒有太多溫暖",
+    "Vg": "邊界清楚 Dome天花板有邊界 視覺被引導到打擊區與外野區 具有幾何邏輯 秩序來自於棒球賽使用節奏",
+    "Ve": "空間結構 球賽律動 球迷反應 導致時間感知延續 "
+  },
+  "emotion_trajectory": {
+    "entry_state": "想嘗試在日本巨蛋觀看日本職棒例行賽 所以安排了一場大阪的比賽 對於兩個棒球隊的戰績歷史 其實一無所知",
+    "turning_point": "六點比賽開始 現場觀看球迷不多 但是被客座隊伍 千葉的海洋隊應援團 強而有力的加油聲給震撼到 隨著球賽的進展 以及網路搜尋兩隊資料後 越來越投入球賽 ",
+    "exit_state": "巨大的球場 動線清楚 現場還有security維持很多秩序及查票 嚴謹的態度 以及球迷的自制 巨大空間即便是上萬人次的參與 亦顯得怡然 ",
+    "trajectory_type": "ascending_resonance",
+    "key_insight": "相對於遊樂場的人數眾多環境 巨蛋是個讓我感到悠閒不緊張的室內環境"
+  },
+  "ideal_condition": "巨蛋有活動時 球賽或者演唱會都可",
+  "research_finding": "雖然同樣是巨蛋 大阪巨蛋比札幌巨蛋更accessable 位於市中心 有很多輔助設施讓整體感受提升 未來可以針對日本巨蛋以及迪士尼等人數眾多空間做採樣比較  Vg_subtype: enclosure_deep — 巨蛋的幾何感是超人類尺度的穹頂包覆，加上視線被引導到打擊區。enclosure_deep 有一點道理，但你的 Vg field note 說「秩序來自於棒球賽使用節奏」——這其實更接近 agricultural_rhythmic 的邏輯，只是來源不是農業而是運動節律。這是一個詞表空白，先保留 enclosure_deep",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-04-08T11:56:53.692Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
