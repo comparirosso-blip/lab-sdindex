@@ -1,0 +1,22 @@
+{
+  "observer": "B",
+  "observer_background": "quantitative_finance",
+  "reference_record_id": "OSK-20260407-A",
+  "schema_version": "1.4.1-observer-b",
+  "generated_at": "2026-04-08T12:07:10.432Z",
+  "vs_vector": {
+    "Vt": 2,
+    "Vl": 7,
+    "Vr": 7,
+    "Vg": 8,
+    "Ve": 8
+  },
+  "sdindex_computation": {
+    "raw_sum": 32,
+    "sdindex_score": 6.4,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "ve_direction": "slower",
+  "key_insight": "因為棒球賽(活動)以及巨蛋內的餐飲販售 讓整體氣氛很開心 我個人喜歡在一個開心的環境裡待著",
+  "note": "Minimal parallel observation for inter-rater reliability. No subtype or keyword annotation."
+}
