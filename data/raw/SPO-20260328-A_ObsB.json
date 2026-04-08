@@ -1,0 +1,22 @@
+{
+  "observer": "B",
+  "observer_background": "quantitative_finance",
+  "reference_record_id": "SPO-20260328-A",
+  "schema_version": "1.4.1-observer-b",
+  "generated_at": "2026-04-01T13:21:50.003Z",
+  "vs_vector": {
+    "Vt": 1,
+    "Vl": 8.5,
+    "Vr": 9,
+    "Vg": 7,
+    "Ve": 8
+  },
+  "sdindex_computation": {
+    "raw_sum": 33.5,
+    "sdindex_score": 6.7,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "ve_direction": "slower",
+  "key_insight": "雷射燈光非常專業 讓觀眾覺得很開心",
+  "note": "Minimal parallel observation for inter-rater reliability. No subtype or keyword annotation."
+}
