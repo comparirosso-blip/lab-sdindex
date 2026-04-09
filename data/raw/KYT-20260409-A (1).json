@@ -1,0 +1,87 @@
+{
+  "record_id": "KYT-20260409-A",
+  "schema_version": "1.4.1",
+  "generated_at": "2026-04-09T07:50:11.028Z",
+  "site": {
+    "name_zh": "鷹庵 安縵京都",
+    "name_local": "鷹庵 アマン京都",
+    "name_en": "Taka-An Aman Kyoto",
+    "city": "Kyoto ",
+    "region": "KYT",
+    "country": "JP",
+    "site_type": "other"
+  },
+  "observation": {
+    "date": "2026-04-09",
+    "time_of_day": "midday",
+    "season": "early_spring",
+    "weather": "陰",
+    "crowd_density": "very_low",
+    "visit_mode": "couple_free",
+    "companion": "Husband",
+    "observer_flags": {
+      "sensory_saturation_effect": true,
+      "preloaded_knowledge_active": true,
+      "ai_collaboration_during_visit": false,
+      "repeat_visit": false
+    }
+  },
+  "vs_vector": {
+    "Vt": 5.5,
+    "Vl": 8,
+    "Vr": 9,
+    "Vg": 9,
+    "Ve": 9
+  },
+  "ve_valence": 1,
+  "sdindex_computation": {
+    "raw_sum": 40.5,
+    "max_possible": 50,
+    "sdindex_score": 8.1,
+    "formula": "sum(Vt+Vl+Vr+Vg+Ve) / 50 * 10"
+  },
+  "sensory_resilience": {
+    "level": "exceptional",
+    "note": "observer assessment of space resistance to crowding/noise, independent of current crowd_density"
+  },
+  "vs_subtypes": {
+    "Vt_subtype": "architectural_heritage",
+    "Vl_source": "mixed",
+    "Vr_source": "architectural_design",
+    "Vg_subtype": "geometric_strict",
+    "Ve_trigger": "external_narrative_human"
+  },
+  "free_keywords": [
+    "axis_pull",
+    "acoustic_void"
+  ],
+  "relations": {
+    "temporal_variant_of": null,
+    "counterpoint_of": "SPO-20260327-A",
+    "sensory_mirror_of": null
+  },
+  "field_notes": {
+    "Vt": "不是傳統的日式歷史文化密度高的地方 但是是一個具有京都特色的地區 所在地鷹峯是京都洛北的賞楓與藝術聚集地  即便藝術村已經不見蹤跡 但是所處環境清幽富有禪意 Aman Kyoto 選址於此 有銜接此處藝術氛圍以及禪宗氣息之意圖",
+    "Vl": "飯店廣大空間植栽與大樹多 光影效果顯著 餐廳內高大落地窗外即是楓葉 現在是初春 透過折射光室內空間已經相當富有變化 秋季將可帶來更多明暗層次",
+    "Vr": "餐桌餐椅餐具使用相當高級  人體與環境距離很近很溫暖 有強烈的品質感 食材與用酒讓用餐客戶融入環境",
+    "Vg": "用餐空間挑高非常高 雖然是封閉環境 但是秩序感強大 視覺也被射一成具有強制力 會有欲望一直望向窗外的植物",
+    "Ve": "跟餐廳一位中國籍侍者相談甚歡 酒食飯飽 完全忘記時間 "
+  },
+  "emotion_trajectory": {
+    "entry_state": "進入Aman Kyoto之前已在附近源光庵以及光悅寺參訪兩小時 對於鷹峯的清幽環境已感到喜愛 ",
+    "turning_point": "用餐環境比一般二星米其林餐廳優異 加上有一位中國籍侍者服務 聊天相談甚歡 餐廳廚房對於老公的飲食禁忌餐廳也非常重視",
+    "exit_state": "覺得物超所值 期待秋天的下一回造訪",
+    "trajectory_type": "surprise_delight",
+    "key_insight": "以米其林二星餐廳而言 是一個能讓感官獲得極大享受的場域"
+  },
+  "ideal_condition": "紅葉季",
+  "research_finding": "感官密度相當高 未來可與其他京都五星飯店的餐廳做比較 Aman 是新建築，選址於藝術聚集地。architectural_heritage 不準確，更接近 corporate_constructed（品牌刻意建構的文化氛圍）。但這個邊界確實模糊",
+  "asset_class": "Gold_Sample",
+  "usable_for_llm_training": true,
+  "ip_status": {
+    "author": "Sabrina",
+    "created_at": "2026-04-09T07:50:11.028Z",
+    "license": "CC-BY-4.0",
+    "locked": true
+  }
+}
